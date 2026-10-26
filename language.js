@@ -119,7 +119,22 @@ function setLanguage(nextLanguage) {
   try { localStorage.setItem("language", language); } catch { /* Optional persistence. */ }
   document.dispatchEvent(new Event("languagechange"));
 }
+const languagePicker = document.querySelector(".language-switch");
+const languageSummary = languagePicker.querySelector("summary");
 document.querySelectorAll("[data-language]").forEach((button) => {
-  button.addEventListener("click", () => setLanguage(button.dataset.language));
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.language);
+    languagePicker.open = false;
+    languageSummary.focus();
+  });
+});
+document.addEventListener("click", (event) => {
+  if (!languagePicker.contains(event.target)) languagePicker.open = false;
+});
+languagePicker.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    languagePicker.open = false;
+    languageSummary.focus();
+  }
 });
 setLanguage(language);

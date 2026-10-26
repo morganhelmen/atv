@@ -21,10 +21,17 @@
       <a href="#vaer">Vær</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
-    <div class="language-switch" role="group" aria-label="Språk / Language">
-      <button type="button" data-language="no" aria-label="Norsk" aria-pressed="true"><span>NO</span></button>
-      <button type="button" data-language="en" aria-label="English" aria-pressed="false"><span>EN</span></button>
-    </div>
+    <details class="language-switch">
+      <summary>
+        <svg class="language-globe" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/></svg>
+        <span>Språk/Language</span>
+        <svg class="language-chevron" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m3 6 5 5 5-5"/></svg>
+      </summary>
+      <div class="language-options" role="group" aria-label="Språk / Language">
+        <button type="button" data-language="en" lang="en" aria-pressed="false">English</button>
+        <button type="button" data-language="no" lang="nb" aria-pressed="true">Norsk</button>
+      </div>
+    </details>
     <a class="top-phone" href="tel:+4740741993">407 41 993</a>
   </header>
 
