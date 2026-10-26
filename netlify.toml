@@ -7,5 +7,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    # Prevent the injected Netlify badge script while allowing our local scripts.
-    Content-Security-Policy = "script-src 'self'"
