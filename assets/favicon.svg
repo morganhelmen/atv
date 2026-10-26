@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="15" fill="#0b1723"/>
-<path d="M32 8v48M11 20l42 24M53 20L11 44M8 32h48" stroke="#f2f7fa" stroke-width="4" stroke-linecap="round"/>
-<circle cx="32" cy="32" r="7" fill="#efb33e"/>
+  <rect width="64" height="64" rx="14" fill="#0b1723"/>
+  <g fill="none" stroke="#e4f5ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path id="arm" d="M32 32V9M24 16l8 8 8-8"/>
+    <use href="#arm" transform="rotate(60 32 32)"/>
+    <use href="#arm" transform="rotate(120 32 32)"/>
+    <use href="#arm" transform="rotate(180 32 32)"/>
+    <use href="#arm" transform="rotate(240 32 32)"/>
+    <use href="#arm" transform="rotate(300 32 32)"/>
+  </g>
 </svg>
