@@ -9,11 +9,11 @@ form.addEventListener("submit", async (e) => {
 
   statusEl.className = "form-status";
   statusEl.textContent = "";
+  delete statusEl.dataset.message;
   sendBtn.disabled = true;
 
   const label = $(".send-label");
-  const previousLabel = label.textContent;
-  label.textContent = "Sender…";
+  label.textContent = translate("Sender…");
 
   try {
     const formData = new FormData(form);
@@ -31,15 +31,17 @@ form.addEventListener("submit", async (e) => {
     }
 
     statusEl.className = "form-status ok";
-    statusEl.textContent = "Takk! Meldingen er sendt ✓";
+    statusEl.dataset.message = "Takk! Meldingen er sendt ✓";
+    statusEl.textContent = translate(statusEl.dataset.message);
     form.reset();
   } catch (error) {
     console.error(error);
     statusEl.className = "form-status err";
-    statusEl.textContent = "Meldingen ble ikke sendt. Ring 407 41 993 eller prøv igjen.";
+    statusEl.dataset.message = "Meldingen ble ikke sendt. Ring 407 41 993 eller prøv igjen.";
+    statusEl.textContent = translate(statusEl.dataset.message);
   } finally {
     sendBtn.disabled = false;
-    label.textContent = previousLabel;
+    label.textContent = translate("Send forespørsel");
   }
 });
 
@@ -51,12 +53,65 @@ const weatherCodeIcon = (code) => {
   if ([1,2,3].includes(code)) return "⛅";
   return "☀️";
 };
-const dayFmt = new Intl.DateTimeFormat("nb-NO", {weekday:"short"});
-const fullFmt = new Intl.DateTimeFormat("nb-NO", {day:"numeric", month:"short"});
 
-async function loadWeather() {
+let weatherData = null;
+let weatherFailed = false;
+
+function renderWeather() {
   const forecast = $("#forecast");
   const summary = $("#weatherSummary");
+  if (weatherFailed) {
+    forecast.innerHTML = "";
+    const error = document.createElement("div");
+    error.className = "day";
+    error.style.cssText = "grid-column:1/-1;min-height:auto";
+    error.textContent = translate("Værmeldingen kunne ikke lastes akkurat nå. Prøv igjen senere.");
+    forecast.appendChild(error);
+    summary.textContent = translate("Værdata er midlertidig utilgjengelig.");
+    return;
+  }
+  if (!weatherData) {
+    summary.textContent = translate("Henter værmelding…");
+    return;
+  }
+  const locale = language === "en" ? "en-GB" : "nb-NO";
+  const dayFmt = new Intl.DateTimeFormat(locale, {weekday:"short"});
+  const fullFmt = new Intl.DateTimeFormat(locale, {day:"numeric", month:"short"});
+  const d = weatherData;
+  forecast.innerHTML = "";
+  let snowDays = 0;
+  let snowTotal = 0;
+  d.time.forEach((dateStr, i) => {
+    const snow = Number(d.snowfall_sum[i] || 0);
+    snowTotal += snow;
+    if (snow > 0.05) snowDays++;
+    const date = new Date(dateStr + "T12:00:00");
+    const el = document.createElement("article");
+    el.className = "day" + (i === 0 ? " today" : "") + (snow > 0.05 ? " snowy" : "");
+    el.innerHTML = `
+      <div class="day-name">${i === 0 ? translate("I dag") : dayFmt.format(date)} · ${fullFmt.format(date)}</div>
+      <div class="weather-icon">${weatherCodeIcon(d.weather_code[i])}</div>
+      <div class="temps">${Math.round(d.temperature_2m_max[i])}° <small>${Math.round(d.temperature_2m_min[i])}°</small></div>
+      <div class="snow">${translate("Snø")}<strong>${snow.toFixed(1)} cm</strong></div>
+      <div class="snow">${translate("Nedbør")}<strong>${Math.round(d.precipitation_probability_max[i] || 0)} %</strong></div>`;
+    forecast.appendChild(el);
+  });
+  if (snowDays) {
+    summary.innerHTML = language === "en"
+      ? `❄️ Snow is possible on <strong>${snowDays}</strong> of the next 7 days, totalling around <strong>${snowTotal.toFixed(1)} cm</strong>.`
+      : `❄️ Prognosen viser mulig snø på <strong>${snowDays}</strong> av de neste 7 dagene, totalt rundt <strong>${snowTotal.toFixed(1)} cm</strong>.`;
+  } else {
+    summary.textContent = translate("Ingen nevneverdig snø er meldt de neste 7 dagene akkurat nå.");
+  }
+}
+
+document.addEventListener("languagechange", () => {
+  renderWeather();
+  $(".send-label").textContent = translate(sendBtn.disabled ? "Sender…" : "Send forespørsel");
+  if (statusEl.dataset.message) statusEl.textContent = translate(statusEl.dataset.message);
+});
+
+async function loadWeather() {
   try {
     const url = new URL("https://api.open-meteo.com/v1/forecast");
     url.search = new URLSearchParams({
@@ -68,36 +123,10 @@ async function loadWeather() {
     });
     const res = await fetch(url);
     if (!res.ok) throw new Error("weather");
-    const j = await res.json();
-    const d = j.daily;
-    forecast.innerHTML = "";
-    let snowDays = 0;
-    let snowTotal = 0;
-
-    d.time.forEach((dateStr, i) => {
-      const snow = Number(d.snowfall_sum[i] || 0);
-      snowTotal += snow;
-      if (snow > 0.05) snowDays++;
-      const date = new Date(dateStr + "T12:00:00");
-      const el = document.createElement("article");
-      el.className = "day" + (i === 0 ? " today" : "") + (snow > 0.05 ? " snowy" : "");
-      el.innerHTML = `
-        <div class="day-name">${i === 0 ? "I dag" : dayFmt.format(date)} · ${fullFmt.format(date)}</div>
-        <div class="weather-icon">${weatherCodeIcon(d.weather_code[i])}</div>
-        <div class="temps">${Math.round(d.temperature_2m_max[i])}° <small>${Math.round(d.temperature_2m_min[i])}°</small></div>
-        <div class="snow">Snø<strong>${snow.toFixed(1)} cm</strong></div>
-        <div class="snow">Nedbør<strong>${Math.round(d.precipitation_probability_max[i] || 0)} %</strong></div>`;
-      forecast.appendChild(el);
-    });
-
-    if (snowDays) {
-      summary.innerHTML = `❄️ Prognosen viser mulig snø på <strong>${snowDays}</strong> av de neste 7 dagene, totalt rundt <strong>${snowTotal.toFixed(1)} cm</strong>.`;
-    } else {
-      summary.innerHTML = `Ingen nevneverdig snø er meldt de neste 7 dagene akkurat nå.`;
-    }
+    weatherData = (await res.json()).daily;
   } catch {
-    forecast.innerHTML = `<div class="day" style="grid-column:1/-1;min-height:auto">Værmeldingen kunne ikke lastes akkurat nå. Prøv igjen senere.</div>`;
-    summary.textContent = "Værdata er midlertidig utilgjengelig.";
+    weatherFailed = true;
   }
+  renderWeather();
 }
 loadWeather();
