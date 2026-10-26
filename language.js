@@ -1,5 +1,11 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Om meg": "About me",
+  "OM MEG": "ABOUT ME",
+  "Hei, jeg heter Morgan!": "Hi, I'm Morgan!",
+  "Portrett av Morgan": "Portrait of Morgan",
+  "Jeg er en mann på 42 år som jobber innen IT, og jeg har stor lyst til å hjelpe andre. Jeg har samboer og har nylig flyttet fra Vestfossen til Hokksund.": "I'm a 42-year-old man working in IT, with a strong desire to help others. I live with my partner and recently moved from Vestfossen to Hokksund.",
+  "Jeg er ganske ny med både ATV og brøyting, men har masse ståpåvilje og lyst til å lære. Jeg tar gjerne i et tak for å gjøre vinterhverdagen litt enklere for folk i nærområdet!": "I'm fairly new to both ATVs and snow clearing, but I have plenty of determination and a desire to learn. I'm happy to lend a hand to make winter a little easier for people in the local area!",
   "Oppkjørsel": "Driveway",
   "Gårdsplass": "Yard",
   "BRØYTING": "SNOW CLEARING",
