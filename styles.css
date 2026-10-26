@@ -59,3 +59,12 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
 @media(max-width:1100px){.topbar{gap:16px}.topbar nav{gap:16px}}
 @media(max-width:900px){.language-switch{margin-left:auto}}
 @media(max-width:620px){.topbar{gap:8px}.brand{font-size:.72rem;min-width:0}.top-phone{display:none}.language-switch{width:172px;font-size:.8rem}.language-switch summary{gap:7px;padding:6px 8px}.brand span{margin-right:3px}}
+
+/* Personal introduction with a compact portrait. */
+.about-section{padding-top:0;scroll-margin-top:30px}
+.about-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:36px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(26px,4vw,48px)}
+.about-portrait{display:block;width:180px;height:220px;max-width:100%;object-fit:cover;object-position:center 35%;border-radius:20px}
+.about-copy h2{font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.08;margin-bottom:20px}
+.about-copy p{color:var(--muted);max-width:760px;margin:0 0 16px}
+.about-copy p:last-child{margin-bottom:0}
+@media(max-width:620px){.about-section{padding-top:0}.about-card{grid-template-columns:1fr;gap:24px}.about-portrait{width:140px;height:172px}}
