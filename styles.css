@@ -110,7 +110,7 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
     background:var(--blue);
   }
   #tjenester .card:hover::before{transform:translate(-5px,-3px) scale(1.04);opacity:.19}
-  .about-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(11,23,35,.09);border-color:#bdd2de}
+  .about-card:hover{transform:none}
   .day:hover{
     transform:translateY(-5px);
     background:rgba(255,255,255,.095);
