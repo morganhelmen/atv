@@ -1,5 +1,9 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Priser": "Prices",
+  "Vil du sende bilder av området?": "Would you like to send photos of the area?",
+  "Send bilder på e-post ↗": "Send photos by email ↗",
+  "Legg ved bildene i e-postappen din før du sender.": "Attach the photos in your email app before sending.",
   "PRISER": "PRICES",
   "Mindre brøyteoppdrag fra 350 kr per gang.": "Smaller snow clearing jobs from NOK 350 per visit.",
   "Pris avtales på forhånd ut fra området, snøforholdene og beliggenheten.": "The price is agreed in advance based on the area, snow conditions and location.",

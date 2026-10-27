@@ -144,3 +144,10 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
 .pricing-box .button{text-align:center}
 @media(max-width:900px){.pricing-box{grid-template-columns:1fr;gap:24px}.pricing-box .button{justify-self:start}}
 @media(max-width:620px){.pricing-section{padding-top:0}}
+
+/* Pricing has its own section heading and menu anchor. */
+.pricing-box .pricing-lead{font-size:clamp(1.25rem,2.2vw,1.65rem);font-weight:800;color:var(--ink);letter-spacing:-.025em}
+.photo-help{margin-top:24px;padding:16px 18px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.045)}
+.photo-help strong,.photo-help small{display:block}
+.photo-help a{display:inline-block;margin:8px 0;color:var(--yellow);font-weight:750;text-underline-offset:4px}
+.photo-help small{color:#a9bdc9}
