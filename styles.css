@@ -134,15 +134,3 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
   .day:hover,.direct-links a:hover,.direct-links a:hover b,.top-phone:hover,
   .button:hover,.send-button:not(:disabled):hover,.send-button:not(:disabled):hover .send-arrow{transform:none}
 }
-
-/* Hero photo uses the proportions and finish of a service card. */
-.hero-image-wrap{width:100%;max-width:370px}
-.hero-image{
-  display:block;
-  height:300px;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:0 8px 28px rgba(11,23,35,.12);
-}
-@media(max-width:900px){.hero-image-wrap{max-width:370px}}
-@media(max-width:620px){.hero-image{height:auto;aspect-ratio:37/30}}
