@@ -18,16 +18,24 @@ form.addEventListener("submit", async (e) => {
   try {
     const formData = new FormData(form);
 
-    const response = await fetch("/", {
+    if (formData.get("botcheck")) {
+      throw new Error("Spam check failed");
+    }
+    const payload = Object.fromEntries(formData.entries());
+    // An empty optional email must not be sent as an invalid Reply-To.
+    if (!payload.email) delete payload.email;
+    const response = await fetch(form.action, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
-      body: new URLSearchParams(formData).toString()
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(20000)
     });
-
-    if (!response.ok) {
-      throw new Error("Netlify form submission failed");
+    const result = await response.json();
+    if (!response.ok || result.success !== true) {
+      throw new Error("Form submission failed");
     }
 
     statusEl.className = "form-status ok";

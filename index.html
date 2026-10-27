@@ -157,10 +157,9 @@
       <form class="contact-form" id="contactForm"
               name="broyteforesporsel"
               method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="website">
-          <input type="hidden" name="form-name" value="broyteforesporsel">
-          <input type="hidden" name="subject" data-remove-prefix value="Ny brøyteforespørsel fra helmen.no">
+              action="https://api.web3forms.com/submit">
+          <input type="hidden" name="access_key" value="b79ded99-a189-4a30-9af7-b507eeb651f6">
+          <input type="hidden" name="subject" value="Ny brøyteforespørsel fra helmen.no">
         <div class="form-grid">
           <label>
             <span>Navn *</span>
@@ -200,7 +199,7 @@
         <!-- Honeypot: skal stå tomt -->
         <label class="hp" aria-hidden="true">
           <span>Nettside</span>
-          <input name="website" tabindex="-1" autocomplete="off">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
         </label>
 <button class="send-button" type="submit">
           <span class="send-label">Send forespørsel</span>
