@@ -141,9 +141,10 @@ function setLanguage(nextLanguage) {
     element.setAttribute(attribute, translate(text));
   });
   document.querySelectorAll("a[data-subject-no][data-subject-en]").forEach((link) => {
-    const url = new URL(link.getAttribute("href"));
-    url.searchParams.set("subject", language === "en" ? link.dataset.subjectEn : link.dataset.subjectNo);
-    link.setAttribute("href", url.href.replace(/\+/g, "%20"));
+    const recipient = link.getAttribute("href").split("?")[0];
+    const subject = language === "en" ? link.dataset.subjectEn : link.dataset.subjectNo;
+    // Mail apps expect percent-encoded spaces, not form-style plus signs.
+    link.setAttribute("href", recipient + "?subject=" + encodeURIComponent(subject));
   });
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.language === language));
