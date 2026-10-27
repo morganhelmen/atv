@@ -143,7 +143,7 @@ function setLanguage(nextLanguage) {
   document.querySelectorAll("a[data-subject-no][data-subject-en]").forEach((link) => {
     const url = new URL(link.getAttribute("href"));
     url.searchParams.set("subject", language === "en" ? link.dataset.subjectEn : link.dataset.subjectNo);
-    link.setAttribute("href", url.href);
+    link.setAttribute("href", url.href.replace(/\+/g, "%20"));
   });
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.language === language));
