@@ -152,14 +152,27 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
 .photo-help a{display:inline-block;margin:8px 0;color:var(--yellow);font-weight:750;text-underline-offset:4px}
 .photo-help small{color:#a9bdc9}
 
-/* Readable guide prices, with room for longer labels on phones. */
-.pricing-box{grid-template-columns:minmax(0,1fr)}
+
+/* Full-width pricing with aligned descriptions and prices. */
+.pricing-box{grid-template-columns:minmax(0,1fr);align-items:start}
+.pricing-box>div{min-width:0;width:100%}
 .pricing-box .button{justify-self:start}
-.pricing-table-wrap{margin:24px 0;min-width:0}
-.pricing-table{width:100%;border-collapse:collapse;text-align:left;font-size:.95rem}
-.pricing-table caption{text-align:left;color:var(--muted);font-size:.85rem;margin-bottom:12px}
-.pricing-table th,.pricing-table td{padding:15px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-.pricing-table thead th{background:var(--ice);font-weight:800}
-.pricing-table tbody th{font-weight:500;width:65%}
-.pricing-table td{font-weight:750}
-@media(max-width:620px){.pricing-table{font-size:.85rem}.pricing-table th,.pricing-table td{padding:12px 6px}.pricing-table tbody th{width:58%}}
+.pricing-table-wrap{margin:28px 0;min-width:0;width:100%}
+.pricing-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:1rem;line-height:1.55}
+.pricing-job-col{width:64%}
+.pricing-cost-col{width:36%}
+.pricing-table caption{text-align:left;color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.pricing-table th,.pricing-table td{padding:20px 18px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left;overflow-wrap:break-word}
+.pricing-table thead th{background:var(--ice);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:#497891}
+.pricing-table tbody th{font-weight:500;color:var(--ink)}
+.pricing-table td{font-weight:750;color:var(--ink)}
+.pricing-table thead th:last-child,.pricing-table td{text-align:right}
+.pricing-table tbody tr:nth-child(even){background:rgba(232,241,245,.35)}
+.pricing-table tbody tr:last-child th,.pricing-table tbody tr:last-child td{border-bottom:0}
+@media(max-width:620px){
+  .pricing-job-col{width:58%}.pricing-cost-col{width:42%}
+  .pricing-table{font-size:.9rem}
+  .pricing-table th,.pricing-table td{padding:16px 8px}
+  .pricing-table th:first-child{padding-left:0}
+  .pricing-table td,.pricing-table thead th:last-child{padding-right:0}
+}
