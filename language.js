@@ -1,5 +1,6 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Meny": "Menu",
   "Veiledende priser per gang ved normale snøforhold": "Guide prices per visit in normal snow conditions",
   "Oppdrag": "Job",
   "Pris per gang": "Price per visit",

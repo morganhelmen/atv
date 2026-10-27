@@ -176,3 +176,25 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
   .pricing-table th:first-child{padding-left:0}
   .pricing-table td,.pricing-table thead th:last-child{padding-right:0}
 }
+
+/* Native disclosure menu for touch-sized screens. */
+.mobile-menu{display:none}
+@media(max-width:900px){
+  .mobile-menu{display:block}
+  .mobile-menu summary{display:flex;align-items:center;justify-content:center;gap:7px;min-width:44px;min-height:44px;padding:8px 10px;border:1px solid rgba(255,255,255,.3);border-radius:12px;color:#fff;background:rgba(255,255,255,.06);cursor:pointer;list-style:none;font-weight:750;font-size:.85rem}
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu summary:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+  .mobile-menu[open] summary{border-color:var(--yellow);color:var(--yellow)}
+  .topbar .mobile-menu nav{display:none;position:absolute;top:calc(100% + 10px);right:0;width:min(300px,calc(100vw - 36px));margin:0;padding:10px;background:#102638;border:1px solid #365266;border-radius:18px;box-shadow:0 18px 45px rgba(0,0,0,.3);gap:3px}
+  .topbar .mobile-menu[open] nav{display:grid}
+  .topbar .mobile-menu nav a{display:block;padding:13px 16px;border-radius:10px;color:#fff;font-size:1rem}
+  .topbar .mobile-menu nav a:hover,.topbar .mobile-menu nav a:focus-visible{background:#1a3a50;color:var(--yellow);outline:2px solid var(--yellow);outline-offset:-2px}
+}
+@media(max-width:620px){
+  .mobile-menu{flex-shrink:0}
+  .mobile-menu-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .language-switch{width:150px}
+  .language-switch summary{font-size:.75rem;gap:5px}
+  .brand{white-space:nowrap}
+}
+@media(max-width:360px){.topbar{width:calc(100% - 24px);gap:6px}.brand{font-size:.65rem}.language-switch{width:140px}}
