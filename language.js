@@ -1,5 +1,10 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "PRISER": "PRICES",
+  "Mindre brøyteoppdrag fra 350 kr per gang.": "Smaller snow clearing jobs from NOK 350 per visit.",
+  "Pris avtales på forhånd ut fra området, snøforholdene og beliggenheten.": "The price is agreed in advance based on the area, snow conditions and location.",
+  "Send gjerne et bilde av området på Messenger for et uforpliktende tilbud.": "Feel free to send a photo of the area on Messenger for a no-obligation quote.",
+  "Be om et tilbud": "Request a quote",
   "Om meg": "About me",
   "OM MEG": "ABOUT ME",
   "Hei, jeg heter Morgan!": "Hi, I'm Morgan!",

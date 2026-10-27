@@ -134,3 +134,13 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
   .day:hover,.direct-links a:hover,.direct-links a:hover b,.top-phone:hover,
   .button:hover,.send-button:not(:disabled):hover,.send-button:not(:disabled):hover .send-arrow{transform:none}
 }
+
+/* Clear, static pricing panel with an agreed price before work begins. */
+.pricing-section{padding-top:0;scroll-margin-top:30px}
+.pricing-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center;padding:clamp(26px,4vw,48px);background:linear-gradient(120deg,#fff,#edf4f8);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:var(--radius)}
+.pricing-box h2{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.12;margin:0 0 20px;max-width:650px}
+.pricing-box p{color:var(--muted);margin:0 0 10px;max-width:680px}
+.pricing-box p:last-child{margin-bottom:0}
+.pricing-box .button{text-align:center}
+@media(max-width:900px){.pricing-box{grid-template-columns:1fr;gap:24px}.pricing-box .button{justify-self:start}}
+@media(max-width:620px){.pricing-section{padding-top:0}}
