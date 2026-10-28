@@ -257,3 +257,7 @@ h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
 
 /* Center hero contact actions on phones. */
 @media(max-width:620px){.hero .actions{justify-content:center}.hero .actions .button{text-align:center}}
+
+/* Separate the FAQ from the contact panel. */
+.faq-section + .contact-section{margin-top:85px}
+@media(max-width:620px){.faq-section + .contact-section{margin-top:55px}}
