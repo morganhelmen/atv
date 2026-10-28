@@ -232,3 +232,25 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
   .hero-image-wrap{width:100%;max-width:100%;justify-self:stretch}
   .hero-image{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:30px}
 }
+
+/* Shared accent and compact feature tiles. */
+h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
+.quickfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:550px;width:100%;margin-top:36px}
+.quickfacts>div{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;min-height:108px;padding:22px 10px 18px;text-align:center;border:1px solid rgba(163,198,218,.2);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.05);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+.quickfacts>div::before{content:"";position:absolute;top:12px;width:20px;height:3px;border-radius:5px;background:var(--yellow);opacity:.8;transition:width .25s ease}
+.quickfacts strong{font-size:1rem;line-height:1.3;margin-top:8px}
+.quickfacts small{font-size:.8rem;color:#a8c0cf;line-height:1.4;margin-top:6px;overflow-wrap:break-word}
+@media(hover:hover) and (pointer:fine){
+ .quickfacts>div:hover{transform:translateY(-5px);border-color:rgba(246,186,61,.65);box-shadow:0 12px 28px rgba(0,0,0,.16);background-color:rgba(255,255,255,.04)}
+ .quickfacts>div:hover::before{width:36px}
+}
+@media(max-width:620px){
+ .quickfacts{max-width:none;gap:8px;margin-top:30px}
+ .quickfacts>div{min-height:100px;padding:20px 6px 14px;border-radius:15px}
+ .quickfacts strong{font-size:.9rem}
+ .quickfacts small{font-size:.72rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .quickfacts>div,.quickfacts>div::before{transition:none}
+ .quickfacts>div:hover{transform:none}
+}
