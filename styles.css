@@ -254,3 +254,6 @@ h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
  .quickfacts>div,.quickfacts>div::before{transition:none}
  .quickfacts>div:hover{transform:none}
 }
+
+/* Center hero contact actions on phones. */
+@media(max-width:620px){.hero .actions{justify-content:center}.hero .actions .button{text-align:center}}
