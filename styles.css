@@ -203,7 +203,7 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
 :root{--yellow:#f6ba3d}
 #tjenester .section-title{grid-template-columns:1fr;gap:22px;align-items:start}
 #tjenester .section-title h2{max-width:900px}
-#tjenester .section-title h2 span{color:#b77708}
+#tjenester .section-title h2 span{color:var(--yellow)}
 #tjenester .section-title p{max-width:760px;font-size:1.1rem}
 .hero{position:relative;padding-bottom:145px}
 .see-more{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;text-decoration:none;color:#adc2ce;font-size:.95rem}
