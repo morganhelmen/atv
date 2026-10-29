@@ -287,3 +287,28 @@ h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
 @media(prefers-reduced-motion:reduce){
  .scroll-reveal{opacity:1;transform:none;transition:none}
 }
+
+/* Alternate quiet white and grey-blue surfaces between sections. */
+body{background:#fff}
+#tjenester{
+ max-width:none;
+ background:#f0f4f7;
+ padding-left:max(18px,calc((100vw - 1144px)/2));
+ padding-right:max(18px,calc((100vw - 1144px)/2));
+}
+.pricing-section{padding-top:80px}
+.pricing-box{background:#fff;box-shadow:0 12px 40px rgba(11,23,35,.055)}
+.process.section{
+ max-width:none;
+ background:#e8eff4;
+ padding-left:max(18px,calc((100vw - 1144px)/2));
+ padding-right:max(18px,calc((100vw - 1144px)/2));
+}
+.process-list li>span{background:#fff}
+.about-section{padding-top:90px}
+.about-card{background:linear-gradient(125deg,#f5f8fa,#eaf1f5);box-shadow:none}
+@media(max-width:620px){
+ #tjenester,.process.section{padding-left:14px;padding-right:14px}
+ .pricing-section{padding-top:60px}
+ .about-section{padding-top:65px}
+}
