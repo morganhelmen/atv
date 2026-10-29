@@ -320,3 +320,21 @@ body{background:#fff}
 
 /* Show the full winter illustration, including the plough, on all screen sizes. */
 .hero-image--winter{display:block;height:auto;aspect-ratio:4/3;object-fit:contain}
+
+/* HELMEN wordmark with the shared golden dot and a quiet service label. */
+.topbar .brand{display:inline-flex;align-items:center;gap:12px;flex-shrink:0;line-height:1;text-decoration:none}
+.topbar .brand span{margin:0}
+.topbar .brand-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-size:1.25rem;font-weight:900;letter-spacing:.13em;color:#fff}
+.topbar .brand-dot{display:inline-block;align-self:center;width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--yellow);transform:translateY(-2px)}
+.topbar .brand-service{font-size:.65rem;font-weight:650;letter-spacing:.1em;color:#afc5d3;border-left:1px solid #ffffff30;padding-left:12px;line-height:1.4}
+.topbar .brand:focus-visible{outline:3px solid var(--yellow);outline-offset:6px;border-radius:3px}
+@media(max-width:1100px){
+ .topbar .brand{flex-direction:column;align-items:flex-start;gap:6px}
+ .topbar .brand-service{border:0;padding-left:0;font-size:.58rem;letter-spacing:.14em}
+}
+@media(max-width:620px){
+ .topbar .brand-wordmark{font-size:1.02rem;letter-spacing:.11em}
+ .topbar .brand-dot{width:5px;height:5px}
+ .topbar .brand-service{font-size:.52rem;letter-spacing:.1em}
+}
+@media(max-width:360px){.topbar .brand-wordmark{font-size:.92rem}}
