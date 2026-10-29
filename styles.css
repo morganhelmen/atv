@@ -361,7 +361,7 @@ body{background:#fff}
  .forecast .temps small{font-size:.75rem;margin-left:1px}
  .forecast .snow{font-size:.72rem}
  .forecast .snow strong{font-size:.9rem}
- .forecast .day.today{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:12px 8px;min-height:0;padding:16px}
+ .forecast .day.today{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:12px 8px;min-height:0;padding:16px;margin-bottom:34px}
  .forecast .today .day-name{grid-column:1/-1;font-size:.78rem}
  .forecast .today .weather-icon{margin:0;font-size:1.7rem;text-align:center}
  .forecast .today .snow{margin:0}
