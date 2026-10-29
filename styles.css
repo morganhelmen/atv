@@ -312,3 +312,10 @@ body{background:#fff}
  .pricing-section{padding-top:60px}
  .about-section{padding-top:65px}
 }
+
+/* Yellow accents tie the three-step process to the site's main buttons. */
+.process .overline{display:inline-flex;align-items:center;gap:10px}
+.process .overline::before{content:"";width:24px;height:4px;border-radius:4px;background:var(--yellow)}
+.process-list li>span{background:var(--yellow);color:var(--ink);box-shadow:0 5px 14px rgba(246,186,61,.18)}
+.process-list li{border-top-color:#cedbe3}
+.process-copy h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;background:var(--yellow);margin-top:24px}
