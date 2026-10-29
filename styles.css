@@ -267,3 +267,13 @@ h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
 .equipment-photo img{display:block;width:100%;height:auto;border-radius:22px;border:1px solid #36505e;background:#102638}
 .equipment-photo figcaption{margin-top:10px;color:#a8bdc9;font-size:.82rem;letter-spacing:.025em}
 @media(max-width:620px){.equipment-photo img{border-radius:16px}.equipment-photo{margin-bottom:24px}}
+
+/* Compact equipment photo beside its description in the expanded answer. */
+.equipment-answer{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,320px);gap:32px;align-items:start;padding-bottom:28px}
+.faq-item .equipment-answer p{padding:0;max-width:none}
+.equipment-answer .equipment-photo{width:100%;max-width:320px;justify-self:end;margin:0}
+.equipment-answer .equipment-photo figcaption{font-size:.75rem}
+@media(max-width:620px){
+ .equipment-answer{grid-template-columns:1fr;gap:20px}
+ .equipment-answer .equipment-photo{max-width:280px;justify-self:center}
+}
