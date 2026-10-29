@@ -2,7 +2,6 @@ const $ = (s) => document.querySelector(s);
 const form = $("#contactForm");
 const statusEl = $("#formStatus");
 const sendBtn = form.querySelector("button[type=submit]");
-$("#year").textContent = new Date().getFullYear();
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
