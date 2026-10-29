@@ -1,0 +1,13 @@
+.git/
+.github/
+.agents/
+.codex/
+.nonprod/
+node_modules/
+README*
+AGENTS.md
+nonprod-worker.jsonc
+netlify.toml
+broyting-nettside-netlify.zip
+package.json
+package-lock.json
