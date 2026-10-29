@@ -80,6 +80,7 @@ const english = {
   "Vanlige og smalere innkjørsler ved bolig.": "Standard and narrow residential driveways.",
   "Gårdsplasser": "Yards",
   "Parkering, gårdsplass og mindre utearealer.": "Parking spaces, yards and smaller outdoor areas.",
+  "Mindre vei": "Small road",
   "Mindre veier": "Small roads",
   "Korte private veier og andre mindre brøyteoppdrag.": "Short private roads and other smaller snow clearing jobs.",
   "7-DAGERS VÆR · HOKKSUND": "7-DAY WEATHER · HOKKSUND",
