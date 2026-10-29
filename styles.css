@@ -351,3 +351,18 @@ body{background:#fff}
 .footer-company,.footer-service{font-size:.76rem;line-height:1.5;color:#617281}
 .footer-logo:focus-visible{outline:3px solid var(--yellow);outline-offset:6px}
 @media(max-width:620px){footer{flex-wrap:wrap;align-items:flex-start}.footer-identity{flex:1 1 220px}.footer-logo{font-size:1.1rem}.footer-company,.footer-service{font-size:.72rem}}
+
+/* Mobile: today's overview followed by two complete rows of three days. */
+@media(max-width:620px){
+ .forecast{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .forecast .day{min-width:0;padding:14px 9px;border-radius:15px}
+ .forecast .day-name{font-size:.69rem;line-height:1.5}
+ .forecast .temps{font-size:1.15rem}
+ .forecast .temps small{font-size:.75rem;margin-left:1px}
+ .forecast .snow{font-size:.72rem}
+ .forecast .snow strong{font-size:.9rem}
+ .forecast .day.today{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:12px 8px;min-height:0;padding:16px}
+ .forecast .today .day-name{grid-column:1/-1;font-size:.78rem}
+ .forecast .today .weather-icon{margin:0;font-size:1.7rem;text-align:center}
+ .forecast .today .snow{margin:0}
+}
