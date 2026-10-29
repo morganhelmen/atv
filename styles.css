@@ -261,3 +261,9 @@ h1 span,#tjenester .section-title h2 span{color:var(--yellow)}
 /* Separate the FAQ from the contact panel. */
 .faq-section + .contact-section{margin-top:85px}
 @media(max-width:620px){.faq-section + .contact-section{margin-top:55px}}
+
+/* Real equipment photo, displayed naturally alongside the equipment answer. */
+.equipment-photo{margin:0 0 28px;max-width:760px;padding:0}
+.equipment-photo img{display:block;width:100%;height:auto;border-radius:22px;border:1px solid #36505e;background:#102638}
+.equipment-photo figcaption{margin-top:10px;color:#a8bdc9;font-size:.82rem;letter-spacing:.025em}
+@media(max-width:620px){.equipment-photo img{border-radius:16px}.equipment-photo{margin-bottom:24px}}
