@@ -1,5 +1,8 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Firehjulstrekk, kjetting og brøyteskjær for mindre områder.": "Four-wheel drive, snow chains and a plough for smaller areas.",
+  "Hokksund og nærområdene – blant annet Vestfossen, Loesmoen og Steinberg.": "Hokksund and nearby areas, including Vestfossen, Loesmoen and Steinberg.",
+  "Hovedsakelig ettermiddag og helg. Vi avtaler pris og tidspunkt på forhånd.": "Mainly afternoons and weekends. We agree on a price and time in advance.",
   "Min Kymco MXU 500 med Kimpex-brøyteskjær": "My Kymco MXU 500 with a Kimpex snow plough",
   "Hva må jeg gjøre før du kommer?": "What should I do before you arrive?",
   "Flytt biler og løse gjenstander fra området som skal brøytes. Vis eller merk kanter, kumlokk, trapper og andre hindringer som kan være skjult under snøen. Vi avtaler på forhånd hvor snøen skal legges.": "Move cars and loose objects out of the area to be cleared. Show or mark edges, drain covers, steps and other obstacles that may be hidden under the snow. We agree in advance where the snow will be placed.",
