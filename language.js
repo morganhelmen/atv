@@ -1,5 +1,7 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Brøyting og snømåking i Hokksund | Helmen Drift": "Snow clearing in Hokksund | Helmen Drift",
+  "Brøyting med ATV av oppkjørsler, gårdsplasser og mindre veier i Hokksund, Vestfossen, Loesmoen og Steinberg. Fra 300 kr per gang. Be om et uforpliktende tilbud.": "ATV snow clearing for driveways, yards and small roads in Hokksund, Vestfossen, Loesmoen and Steinberg. From NOK 300 per visit. Get a no-obligation quote.",
   "Helmen Drift på Facebook": "Helmen Drift on Facebook",
   "Vinterillustrasjon av min Kymco MXU 500 med Kimpex-brøyteskjær": "Winter illustration of my Kymco MXU 500 with a Kimpex snow plough",
   "· Vinterillustrasjon": "· Winter illustration",
@@ -150,7 +152,7 @@ while (walker.nextNode()) {
   }
 }
 const translatedAttributes = [];
-document.querySelectorAll("[placeholder], [alt], meta[name='description'], meta[property='og:title'], meta[property='og:description']").forEach((element) => {
+document.querySelectorAll("[placeholder], [alt], meta[name='description'], meta[property='og:title'], meta[property='og:description'], meta[property='og:image:alt'], meta[name^='twitter:']").forEach((element) => {
   for (const attribute of ["placeholder", "alt", "content"]) {
     const text = element.getAttribute(attribute);
     if (text && Object.hasOwn(english, text)) translatedAttributes.push({element, attribute, text});
@@ -166,6 +168,7 @@ function setLanguage(nextLanguage) {
   language = nextLanguage === "en" ? "en" : "no";
   document.documentElement.lang = language === "en" ? "en" : "nb";
   document.title = translate(norwegianTitle);
+  document.querySelector('meta[property="og:locale"]')?.setAttribute("content", language === "en" ? "en_GB" : "nb_NO");
   translatedNodes.forEach(({node, text, original}) => {
     node.textContent = original.replace(text, translate(text));
   });
@@ -203,3 +206,4 @@ languagePicker.addEventListener("keydown", (event) => {
   }
 });
 setLanguage(language);
+
