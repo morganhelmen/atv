@@ -384,3 +384,12 @@ body{background:#fff}
 .direct-links .facebook-label{display:flex;align-items:center;gap:5px;flex-shrink:0;font-size:.68rem}
 
 .footer-instagram .instagram-icon{display:block;flex-shrink:0;width:18px;height:18px}
+
+/* Keep the footer identity left and social links right on small screens. */
+@media(max-width:620px){
+ footer{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:start}
+ .footer-identity{flex:none}
+ .footer-org{display:block;white-space:nowrap}
+ .footer-links{display:grid;grid-template-columns:repeat(2,44px);gap:0;justify-content:end}
+ .footer-links .footer-back-top{grid-column:1/-1;justify-self:end;white-space:nowrap;font-size:.72rem}
+}
