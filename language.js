@@ -55,7 +55,7 @@ const english = {
   "OM MEG": "ABOUT ME",
   "Hei, jeg heter Morgan!": "Hi, I'm Morgan!",
   "Portrett av Morgan": "Portrait of Morgan",
-  "Jeg er 42 år, jobber innen IT og bor i Hokksund sammen med samboeren min og barna våre. På fritiden tilbyr jeg mindre brøyteoppdrag med ATV for folk i nærområdet.": "I'm 42, work in IT and live in Hokksund with my partner and our children. In my spare time, I offer smaller ATV snow clearing jobs for people in the local area.",
+  "Jeg er 42 år, jobber innen IT og bor i Hokksund sammen med forloveden min og barna våre. På fritiden tilbyr jeg mindre brøyteoppdrag med ATV for folk i nærområdet.": "I'm 42, work in IT and live in Hokksund with my fiancée and our children. In my spare time, I offer smaller ATV snow clearing jobs for people in the local area.",
   "Jeg er ganske ny med både ATV og brøyting, men har masse ståpåvilje og lyst til å lære. Jeg liker å ta i et tak og gjøre vinterhverdagen litt enklere for andre. Ta gjerne kontakt for et uforpliktende tilbud, så finner vi en løsning som passer!": "I'm fairly new to both ATVs and snow clearing, but I have plenty of determination and a desire to learn. I enjoy pitching in and making winter a little easier for others. Feel free to get in touch for a no-obligation quote, and we'll find a solution that works for you!",
   "Oppkjørsel": "Driveway",
   "Gårdsplass": "Yard",
