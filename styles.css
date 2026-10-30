@@ -374,7 +374,7 @@ body{background:#fff}
 .facebook-profile>span:last-child{color:var(--yellow)}
 .footer-links{display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap}
 .footer-links>a{display:inline-flex;align-items:center;min-height:44px}
-.footer-facebook{gap:8px;color:#497891}
+.footer-facebook{justify-content:center;min-width:44px;color:#497891}
 .footer-facebook .facebook-icon{width:18px;height:18px}
 .facebook-profile:focus-visible,.footer-links>a:focus-visible{outline:3px solid var(--yellow);outline-offset:4px;border-radius:5px}
 @media(hover:hover) and (pointer:fine){.facebook-profile:hover{color:#fff}.footer-facebook:hover{color:var(--blue)}}
