@@ -1,5 +1,6 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Helmen Drift på Facebook": "Helmen Drift on Facebook",
   "Vinterillustrasjon av min Kymco MXU 500 med Kimpex-brøyteskjær": "Winter illustration of my Kymco MXU 500 with a Kimpex snow plough",
   "· Vinterillustrasjon": "· Winter illustration",
   "Firehjulstrekk, kjetting og brøyteskjær for mindre områder.": "Four-wheel drive, snow chains and a plough for smaller areas.",
