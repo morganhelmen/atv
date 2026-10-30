@@ -374,11 +374,13 @@ body{background:#fff}
 .facebook-profile>span:last-child{color:var(--yellow)}
 .footer-links{display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap}
 .footer-links>a{display:inline-flex;align-items:center;min-height:44px}
-.footer-facebook{justify-content:center;min-width:44px;color:#497891}
+.footer-facebook,.footer-instagram{justify-content:center;min-width:44px;color:#497891}
 .footer-facebook .facebook-icon{width:18px;height:18px}
 .facebook-profile:focus-visible,.footer-links>a:focus-visible{outline:3px solid var(--yellow);outline-offset:4px;border-radius:5px}
-@media(hover:hover) and (pointer:fine){.facebook-profile:hover{color:#fff}.footer-facebook:hover{color:var(--blue)}}
+@media(hover:hover) and (pointer:fine){.facebook-profile:hover{color:#fff}.footer-facebook:hover,.footer-instagram:hover{color:var(--blue)}}
 @media(max-width:620px){.footer-links{gap:18px}.facebook-profile{font-size:.78rem}}
 
 /* Facebook follows the same row layout as the other contact methods. */
 .direct-links .facebook-label{display:flex;align-items:center;gap:5px;flex-shrink:0;font-size:.68rem}
+
+.footer-instagram .instagram-icon{display:block;flex-shrink:0;width:18px;height:18px}
