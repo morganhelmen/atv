@@ -1,0 +1,87 @@
+/* Snow-specific content shares the same hero, menu and base layout as all services. */
+.section-title{display:grid;grid-template-columns:1.2fr 1fr;gap:55px;align-items:end;margin-bottom:34px}
+.section-title h2{margin-bottom:0}
+.section-title>p{color:var(--muted);margin-bottom:0}
+.overline{display:block;color:#497891;font-size:.7rem;font-weight:850;letter-spacing:.15em;margin-bottom:14px}
+.section-title h2 span{color:var(--yellow)}
+.snow-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.snow-type{position:relative;min-width:0;border:1px solid var(--line);border-radius:24px;padding:28px;background:#f4f7fa}
+.snow-type .card-num{position:absolute;right:22px;top:18px;color:#93a8b5;font-size:.72rem;font-weight:800}
+.snow-type .icon{width:48px;height:48px;border-radius:14px;background:#0b1723;color:#fff;margin-bottom:26px}
+.snow-type h3{font-size:1.35rem;margin-bottom:12px}
+.snow-type p{color:var(--muted);font-size:.95rem;margin-bottom:0}
+.snow-pricing{background:#e8eff4}
+.pricing-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px}
+.pricing-box>div{min-width:0}
+.pricing-box h2{margin-bottom:18px}
+.pricing-box p{color:var(--muted);font-size:.95rem}
+.pricing-box .pricing-lead{font-size:1.1rem}
+.pricing-table-wrap{width:100%;margin:26px 0}
+.pricing-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:.94rem;line-height:1.55}
+.pricing-job-col{width:65%}.pricing-cost-col{width:35%}
+.pricing-table caption{text-align:left;font-size:.8rem;color:var(--muted);margin-bottom:14px}
+.pricing-table th,.pricing-table td{padding:17px 12px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left;overflow-wrap:break-word}
+.pricing-table thead th{background:#f0f4f7;color:#497891;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.pricing-table tbody th{font-weight:500}
+.pricing-table td{font-weight:750}
+.pricing-table td,.pricing-table thead th:last-child{text-align:right}
+.pricing-table tbody tr:last-child th,.pricing-table tbody tr:last-child td{border-bottom:0}
+.snow-faq{background:#f7f9fb}
+.faq-intro{color:var(--muted);max-width:650px;margin-bottom:32px}
+.faq-list{max-width:980px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{position:relative;cursor:pointer;list-style:none;padding:22px 40px 22px 0;font-weight:750;line-height:1.5}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:8px;top:18px;color:#497891;font-size:1.4rem}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{color:var(--muted);font-size:.96rem;max-width:850px}
+.faq-contact{display:inline-block;margin-top:28px;color:#355c73;font-weight:750;text-underline-offset:5px}
+.equipment-answer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.75fr);align-items:start;gap:28px;padding-bottom:20px}
+.equipment-photo{margin:0}
+.equipment-photo img{display:block;width:100%;height:auto;border-radius:20px}
+.equipment-photo figcaption{font-size:.72rem;color:var(--muted);margin-top:8px}
+.contact-copy .eyebrow{color:#89b7d0}
+.photo-help{margin:24px 0;padding:18px;border:1px solid #ffffff25;border-radius:16px;background:#ffffff05}
+.photo-help strong,.photo-help a,.photo-help small{display:block}
+.photo-help a{color:#f6ba3d;margin-top:8px;text-underline-offset:4px}
+.photo-help small{margin-top:8px;font-size:.76rem;color:#a9c2d1}
+.general-contact-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.general-contact-form select{width:100%;padding:12px 13px;border:1px solid #cfdae2;border-radius:11px;background:#f7f9fb;color:#0b1723;font:inherit;min-height:48px}
+.general-contact-form select:focus{outline:3px solid #f6ba3d66;border-color:#bc8a2a}
+.snow-weather{background:#e8eff4}
+.weather-heading{display:grid;grid-template-columns:1fr minmax(0,.8fr);gap:40px;align-items:center}
+.weather-heading p{color:var(--muted);max-width:600px}
+.weather-summary{padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff;font-size:.9rem;line-height:1.6;color:#355c73}
+.forecast{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-top:35px}
+.day{min-width:0;padding:20px 14px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.day.today{border-color:#d4b267;background:#fffaf0}
+.day-name{font-size:.73rem;font-weight:750;line-height:1.5;color:#5f7785;min-height:30px}
+.weather-icon{font-size:1.65rem;margin:15px 0}
+.temps{font-size:1.35rem;font-weight:800;line-height:1.5}
+.temps small{font-size:.78rem;color:#7d929e;margin-left:2px}
+.snow{font-size:.78rem;line-height:1.5;color:#607482;margin-top:16px}
+.snow strong{display:block;font-size:1rem;color:#0b1723;margin-top:3px}
+.weather-source{font-size:.72rem;color:#758b99;margin:22px 0 0}
+@media(max-width:1000px){.pricing-box{grid-template-columns:1fr}.forecast{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){
+ .section-title,.weather-heading,.equipment-answer{grid-template-columns:1fr;gap:22px}
+ .snow-types{grid-template-columns:1fr}
+ .pricing-box{padding:24px 18px}
+ .pricing-table{font-size:.82rem}
+ .pricing-table th,.pricing-table td{padding:14px 5px}
+ .equipment-photo{max-width:380px}
+}
+@media(max-width:620px){
+ .forecast{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .day{padding:15px 9px;border-radius:15px}
+ .day-name{font-size:.68rem}
+ .temps{font-size:1.16rem}
+ .snow{font-size:.72rem}
+ .snow strong{font-size:.9rem}
+ .day.today{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:10px 8px;margin-bottom:27px}
+ .today .day-name{grid-column:1/-1;min-height:0}
+ .today .weather-icon,.today .snow{margin:0}
+ .today .weather-icon{text-align:center}
+ .general-contact-form .form-grid{grid-template-columns:1fr;gap:0}
+}

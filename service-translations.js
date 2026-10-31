@@ -1,5 +1,16 @@
 // Norwegian source → English, Polish, Ukrainian, Lithuanian.
 const serviceTranslations = {
+  "Om Helmen | Helmen Drift · Testside": ["About Helmen | Helmen Drift · Test site", "O Helmen | Helmen Drift · Strona testowa", "Про Helmen | Helmen Drift · Тестовий сайт", "Apie Helmen | Helmen Drift · Bandomoji svetainė"],
+  "Om Helmen Drift: praktiske tjenester i Hokksund og omegn, drevet av Morgan Helmen.": ["About Helmen Drift: practical services in Hokksund and the surrounding area, run by Morgan Helmen.", "O Helmen Drift: praktyczne usługi w Hokksund i okolicy, prowadzone przez Morgana Helmena.", "Про Helmen Drift: практичні послуги в Hokksund та околицях від Моргана Хельмена.", "Apie Helmen Drift: praktinės paslaugos Hokksund ir apylinkėse, kurias teikia Morgan Helmen."],
+  "PERSONEN BAK HELMEN": ["THE PERSON BEHIND HELMEN", "OSOBA STOJĄCA ZA HELMEN", "ЛЮДИНА ЗА HELMEN", "ŽMOGUS UŽ HELMEN VARDO"],
+  "Les mer om Helmen": ["Read more about Helmen", "Dowiedz się więcej o Helmen", "Дізнайтеся більше про Helmen", "Skaitykite daugiau apie Helmen"],
+  "Illustrasjon": ["Illustration", "Ilustracja", "Ілюстрація", "Iliustracija"],
+  "Illustrasjon av plenklipping": ["Illustration of lawn mowing", "Ilustracja koszenia trawnika", "Ілюстрація косіння газону", "Žolės pjovimo iliustracija"],
+  "Illustrasjon av varebil med tilhenger": ["Illustration of a van with a trailer", "Ilustracja furgonetki z przyczepą", "Ілюстрація фургона з причепом", "Furgono su priekaba iliustracija"],
+  "Illustrasjon av bærehjelp": ["Illustration of carrying help", "Ilustracja pomocy w noszeniu", "Ілюстрація допомоги з перенесенням", "Pagalbos nešant daiktus iliustracija"],
+  "Illustrasjon av rydding og hageavfall": ["Illustration of clearance and garden waste", "Ilustracja porządkowania i odpadów ogrodowych", "Ілюстрація прибирання та садових відходів", "Tvarkymo ir sodo atliekų iliustracija"],
+  "Illustrasjon av mindre trefelling": ["Illustration of small tree felling", "Ilustracja wycinki małego drzewa", "Ілюстрація спилювання невеликого дерева", "Nedidelio medžio kirtimo iliustracija"],
+  "Illustrasjon av et lokalt nabolag": ["Illustration of a local neighbourhood", "Ilustracja lokalnego osiedla", "Ілюстрація місцевого району", "Vietinės gyvenvietės iliustracija"],
   "E-post *": ["Email *", "E-mail *", "Ел. пошта *", "El. paštas *"],
   "Fortell hva du ønsker hjelp med…": ["Describe what you need help with…", "Opisz, w czym potrzebujesz pomocy…", "Опишіть, яка допомога вам потрібна…", "Aprašykite, kokios pagalbos reikia…"],
   "Et idéutkast til Helmen Drift: brøyting, gressklipping, frakt, bærehjelp, rydding og mindre trefelling i Hokksund og omegn.": ["A concept for Helmen Drift: snow clearing, lawn mowing, transport, carrying help, clearance and small tree felling in Hokksund and the surrounding area.", "Projekt Helmen Drift: odśnieżanie, koszenie trawy, transport, pomoc w noszeniu, porządki i wycinka małych drzew w Hokksund i okolicy.", "Концепція Helmen Drift: прибирання снігу, косіння газонів, перевезення, допомога з перенесенням, прибирання та спилювання невеликих дерев у Hokksund та околицях.", "Helmen Drift idėja: sniego valymas, žolės pjovimas, transportas, pagalba nešant, tvarkymas ir nedidelių medžių kirtimas Hokksund ir apylinkėse."],
@@ -177,3 +188,4 @@ Object.assign(serviceTranslations, {
   "Om det er trapper, vanskelig adkomst eller behov for bæring.": ["Any stairs, difficult access or need for carrying help.", "Czy są schody, trudny dostęp lub potrzeba pomocy w noszeniu.", "Чи є сходи, складний доступ або потреба в допомозі з перенесенням.", "Ar yra laiptų, sunkus privažiavimas arba reikia pagalbos nešant."],
   "Utgangspunktet er Hokksund, Vestfossen, Loesmoen og Steinberg. Andre nærliggende områder vurderes etter avtale.": ["The main areas are Hokksund, Vestfossen, Loesmoen and Steinberg. Other nearby areas can be considered by arrangement.", "Główny obszar to Hokksund, Vestfossen, Loesmoen i Steinberg. Inne pobliskie miejscowości rozpatrywane są po uzgodnieniu.", "Основні райони — Hokksund, Vestfossen, Loesmoen та Steinberg. Інші місця поблизу розглядаються за домовленістю.", "Pagrindinės vietovės – Hokksund, Vestfossen, Loesmoen ir Steinberg. Kitos netolimos vietovės svarstomos susitarus."]
 });
+
