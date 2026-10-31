@@ -20,3 +20,4 @@
     else window.addEventListener('resize', updateHeight);
   }
 })();
+

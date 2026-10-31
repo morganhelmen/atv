@@ -47,3 +47,4 @@ Netlify viser nøyaktige DNS-verdier under:
 VÆR
 ----
 Værdata hentes direkte fra Open-Meteo for Hokksund og krever ingen API-nøkkel.
+

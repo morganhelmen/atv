@@ -131,3 +131,4 @@ const additionalTranslations = {
   "Værdata er midlertidig utilgjengelig.": ["Dane pogodowe są chwilowo niedostępne.", "Дані про погоду тимчасово недоступні.", "Orų duomenys laikinai nepasiekiami."]
 };
 
+
