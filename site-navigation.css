@@ -1,0 +1,69 @@
+/* Navigation shared by the service concept and the production-style snow page. */
+:root{--site-header-height:160px}
+html{scroll-padding-top:calc(var(--site-header-height) + 20px)}
+.site-concept-note{display:flex;justify-content:center;align-items:baseline;gap:12px;margin:0;padding:10px 20px;background:#e8eff4;color:#355164;font-size:.75rem;line-height:1.5;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.site-concept-note strong{font-size:.64rem;letter-spacing:.12em;white-space:nowrap}
+.site-header{position:sticky;top:0;z-index:50;background:#0b1723;color:#fff;border-bottom:1px solid #ffffff24;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.site-header *{box-sizing:border-box}
+.site-header-inner,.site-services-inner{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+.site-header-inner{display:flex;align-items:center;gap:24px;min-height:78px}
+.site-brand{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;color:#fff;font-size:1.4rem;font-weight:900;letter-spacing:.13em;line-height:1;text-decoration:none}
+.site-brand-dot{width:6px;height:6px;flex-shrink:0;display:inline-block;border-radius:50%;background:#f6ba3d;transform:translateY(-3px)}
+.site-main-nav{display:flex;align-items:center;gap:25px;margin-left:auto}
+.site-main-nav a{color:#cbd9e1;font-size:.85rem;font-weight:650;text-decoration:none;white-space:nowrap}
+.site-main-nav .site-contact-link{padding:10px 16px;background:#f6ba3d;color:#0b1723;border-radius:12px;font-weight:800}
+.site-services{padding:12px 0 15px;border-top:1px solid #ffffff18;background:#102638}
+.site-services-inner{display:flex;align-items:center;gap:22px}
+.site-services-label{color:#9eb8c8;font-size:.62rem;letter-spacing:.13em;font-weight:800}
+.site-service-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;flex:1;margin:0}
+.site-service-links a{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:44px;padding:8px 9px;border:1px solid #ffffff22;border-radius:12px;color:#d0dfe8;background:#ffffff05;font-size:.75rem;font-weight:650;line-height:1.3;text-align:center;text-decoration:none}
+.site-service-links .season-link{border-color:#f6ba3d66;background:#f6ba3d14;color:#ffd16d}
+.season-mini{padding:2px 5px;border-radius:4px;background:#f6ba3d;color:#0b1723;font-size:.52rem;font-weight:900;letter-spacing:.04em}
+.site-service-links a[aria-current="page"]{background:#fff;color:#0b1723;border-color:#fff}
+.site-service-links .season-link[aria-current="page"]{background:#f6ba3d;border-color:#f6ba3d}
+.site-menu{display:none;position:relative;flex-shrink:0}
+.site-menu summary{display:flex;align-items:center;justify-content:center;gap:10px;min-width:44px;min-height:44px;padding:9px 12px;border:1px solid #ffffff40;border-radius:12px;list-style:none;cursor:pointer;font-size:.85rem;font-weight:650;line-height:1.2}
+.site-menu summary::-webkit-details-marker{display:none}
+.site-menu nav{position:absolute;right:0;top:calc(100% + 12px);display:grid;width:min(300px,calc(100vw - 36px));max-height:calc(100dvh - 100px);overflow-y:auto;padding:10px;border:1px solid #ffffff30;border-radius:16px;background:#102638;box-shadow:0 18px 40px #0005}
+.site-menu nav a{padding:13px 15px;border-radius:9px;color:#fff;text-decoration:none;font-size:.9rem}
+.site-menu nav .site-contact-link{background:#f6ba3d;color:#0b1723;font-weight:800}
+.site-menu[open]>summary{color:#f6ba3d;border-color:#f6ba3d}
+.site-header .language-switch{margin-left:0;flex-shrink:0}
+.site-header a:focus-visible,.site-header summary:focus-visible,.site-footer a:focus-visible{outline:3px solid #f6ba3d;outline-offset:4px}
+.site-footer{width:min(1180px,calc(100% - 36px));margin-inline:auto;padding:36px 0 45px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;color:#617281;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:.82rem}
+.site-footer .footer-identity{display:grid;gap:10px;min-width:0}
+.site-footer .site-brand{color:#0b1723;font-size:1.25rem}
+.site-footer small{font-size:.75rem;line-height:1.5}
+.site-footer-links{display:flex;align-items:center;gap:10px}
+.site-footer-links a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;text-decoration:none;color:#497891}
+.site-footer-links .footer-top{font-size:.8rem;white-space:nowrap;margin-left:8px}
+@media(hover:hover){
+ .site-main-nav a:not(.site-contact-link):hover,.site-menu nav a:hover{color:#f6ba3d}
+ .site-service-links a:hover{border-color:#f6ba3d;color:#f6ba3d;background:#ffffff0b}
+ .site-service-links a[aria-current="page"]:hover{color:#0b1723;background:#ffcc62}
+}
+@media(max-width:1000px){
+ .site-main-nav{display:none}
+ .site-header-inner{min-height:72px;gap:16px}
+ .site-brand{margin-right:auto}
+ .site-menu{display:block}
+ .site-services-label{display:none}
+ .site-service-links{gap:7px}
+ .site-service-links a{font-size:.72rem;padding-inline:6px}
+}
+@media(max-width:680px){
+ .site-concept-note{font-size:.65rem;padding:9px 18px;gap:10px;align-items:flex-start}
+ .site-header-inner{min-height:68px;gap:12px}
+ .site-services{padding:10px 0 12px}
+ .site-service-links{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .site-service-links a{min-height:44px;padding:7px 5px;border-radius:10px;font-size:.7rem}
+ .site-header .language-switch{width:64px}
+ .site-header .language-switch summary{justify-content:space-between;min-height:40px}
+ .site-header .language-switch summary>span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .site-header .language-options{width:170px;left:auto;right:0}
+ .site-footer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding-bottom:35px}
+ .site-footer .footer-org{display:block;white-space:nowrap}
+ .site-footer-links{display:grid;grid-template-columns:repeat(2,44px);gap:0}
+ .site-footer-links .footer-top{grid-column:1/-1;justify-self:end;margin:0;font-size:.72rem}
+}
+@media(max-width:380px){.site-header:has(.language-switch) .site-menu summary>span{display:none}}

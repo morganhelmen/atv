@@ -1,1 +1,8 @@
-.all-services{display:inline-block;margin-bottom:22px;color:#c6d8e1;font-size:.88rem;text-decoration:none}.all-services:hover{color:var(--yellow)}.all-services:focus-visible{outline:3px solid var(--yellow);outline-offset:5px}
+.all-services{display:inline-block;margin-bottom:22px;color:#c6d8e1;font-size:.88rem;text-decoration:none}
+.all-services:hover{color:var(--yellow)}
+.all-services:focus-visible{outline:3px solid var(--yellow);outline-offset:5px}
+.snow-service-page .hero{padding-top:55px}
+@media(max-width:680px){
+ .snow-service-page .hero{padding-top:40px}
+ .snow-service-page .site-footer{padding-bottom:110px}
+}

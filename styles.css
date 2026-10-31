@@ -38,7 +38,7 @@ h1{font-size:clamp(4.2rem,7.2vw,7.4rem);line-height:.9;margin:25px 0 25px;max-wi
 .contact-section{background:linear-gradient(135deg,#0b1723,#112e43);color:#fff;margin:0 max(18px,calc((100vw - 1220px)/2)) 85px;border-radius:36px;padding:65px;display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}.contact-copy p{color:#9fb7c5;max-width:430px}.direct-links{display:grid;gap:9px;margin-top:34px}.direct-links a{display:flex;align-items:center;gap:12px;text-decoration:none;padding:13px 15px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.045)}.direct-links small{display:block;color:#86a4b4;width:72px}.direct-links strong{font-size:.93rem}.direct-links b{margin-left:auto;color:var(--yellow)}
 .contact-form{background:#fff;color:var(--ink);border-radius:27px;padding:28px;box-shadow:0 25px 65px rgba(0,0,0,.19)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.contact-form label{display:block;margin-bottom:14px}.contact-form label>span{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:#647682;font-weight:850;margin-bottom:7px}.contact-form input,.contact-form textarea,.contact-form select{width:100%;border:1px solid #d8e2e7;background:#f9fbfc;border-radius:13px;padding:13px 14px;outline:0;color:var(--ink)}.contact-form textarea{resize:vertical;min-height:125px}.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:#6f9db8;box-shadow:0 0 0 4px rgba(38,107,153,.10)}.hp{position:absolute!important;left:-9999px!important;opacity:0!important;pointer-events:none!important}
 .send-button{width:100%;border:0;border-radius:14px;background:var(--yellow);color:#17222a;padding:15px 17px;display:flex;justify-content:space-between;align-items:center;font-weight:900;cursor:pointer}.send-button:disabled{opacity:.6;cursor:wait}.send-arrow{font-size:1.25rem}.form-status{min-height:24px;padding-top:10px;font-size:.87rem}.form-status.ok{color:#19724a}.form-status.err{color:#b34343}
-footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:.82rem;display:flex;justify-content:space-between;gap:20px}footer a{text-decoration:none}
+footer{max-width:1180px;margin:auto;padding:20px 18px 45px;color:#758691;font-size:.82rem;display:flex;justify-content:space-between;gap:20px}footer a{text-decoration:none}
 .mobile-actions{display:none}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:120px}.hero-image-wrap{justify-self:start;max-width:100%}.hero-image{height:430px}.section-title,.weather-heading,.process,.contact-section{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.forecast{grid-template-columns:repeat(4,1fr)}.weather-summary{justify-self:start}.contact-section{padding:38px;gap:40px}.topbar nav{display:none}}
 @media(max-width:620px){.topbar{height:68px}.top-phone{font-size:.82rem}.hero{padding:105px 16px 70px;gap:38px}h1{font-size:clamp(3.7rem,17vw,5.3rem)}.hero-image{height:350px}.image-badge{left:12px;bottom:12px}.quickfacts{gap:20px}.section{padding:75px 14px}.forecast{grid-template-columns:repeat(2,1fr)}.weather-section{padding:75px 14px}.contact-section{margin:0 10px 82px;padding:25px 18px;border-radius:25px}.form-grid{grid-template-columns:1fr}.direct-links strong{font-size:.84rem}.mobile-actions{position:fixed;z-index:50;bottom:10px;left:10px;right:10px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;border-radius:15px;box-shadow:0 15px 45px rgba(0,0,0,.25)}.mobile-actions a{text-decoration:none;text-align:center;padding:13px;background:#fff;font-weight:900}.mobile-actions a:last-child{background:var(--yellow)}footer{padding-bottom:90px}}
@@ -50,11 +50,15 @@ footer{max-width:1180px;margin:auto;padding:0 18px 45px;color:#758691;font-size:
 .language-globe{width:17px;height:17px;flex-shrink:0;color:#192b3d}
 .language-chevron{width:14px;height:14px;margin-left:auto;flex-shrink:0;color:#192b3d}
 .language-switch[open] .language-chevron{transform:rotate(180deg)}
-.language-options{position:absolute;top:calc(100% + 2px);left:0;right:0;background:#fff;border:1px solid #e7e9ed;box-shadow:0 3px 8px rgba(0,0,0,.18);z-index:30}
+.language-options{position:absolute;top:calc(100% + 2px);left:0;right:0;max-height:min(320px,calc(100dvh - 100px));overflow-y:auto;background:#fff;border:1px solid #e7e9ed;box-shadow:0 3px 8px rgba(0,0,0,.18);z-index:30}
 .language-options button{position:relative;display:block;width:100%;min-height:44px;border:0;background:#fff;color:#003b71;text-align:left;padding:11px 16px 11px 32px;font-size:.85rem;cursor:pointer}
 .language-options button+button{border-top:1px solid #e7e9ed}
 .language-options button[aria-pressed="true"]::before{content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:#003b71}
 .language-options button:hover{background:#f0f5fa}
+
+/* Longer translations must be able to wrap within the hero column. */
+.hero-copy{min-width:0}
+.hero h1{overflow-wrap:anywhere;hyphens:auto}
 .language-switch summary:focus-visible,.language-options button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
 @media(max-width:1100px){.topbar{gap:16px}.topbar nav{gap:16px}}
 @media(max-width:900px){.language-switch{margin-left:auto}}
@@ -320,3 +324,78 @@ body{background:#fff}
 
 /* Show the full winter illustration, including the plough, on all screen sizes. */
 .hero-image--winter{display:block;height:auto;aspect-ratio:4/3;object-fit:contain}
+
+/* HELMEN wordmark with the shared golden dot and a quiet service label. */
+.topbar .brand{display:inline-flex;align-items:center;gap:12px;flex-shrink:0;line-height:1;text-decoration:none}
+.topbar .brand span{margin:0}
+.topbar .brand-wordmark{display:inline-flex;align-items:baseline;gap:3px;font-size:1.4rem;font-weight:900;letter-spacing:.13em;color:#fff}
+.topbar .brand-dot{display:inline-block;align-self:center;width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--yellow);transform:translateY(-2px)}
+.topbar .brand-service{font-size:.65rem;font-weight:650;letter-spacing:.1em;color:#afc5d3;border-left:1px solid #ffffff30;padding-left:12px;line-height:1.4}
+.topbar .brand:focus-visible{outline:3px solid var(--yellow);outline-offset:6px;border-radius:3px}
+@media(max-width:1100px){
+ .topbar .brand{flex-direction:column;align-items:flex-start;gap:6px}
+ .topbar .brand-service{border:0;padding-left:0;font-size:.58rem;letter-spacing:.14em}
+}
+@media(max-width:620px){
+ .topbar .brand-wordmark{font-size:1.4rem;letter-spacing:.13em}
+ .topbar .brand-dot{width:6px;height:6px}
+ .topbar .brand-service{font-size:.52rem;letter-spacing:.1em}
+}
+@media(max-width:360px){
+ .topbar .language-switch{width:64px}
+ .topbar .language-switch summary{justify-content:space-between}
+ .topbar .language-switch summary>span{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .topbar .language-switch .language-options{width:160px;left:auto;right:0}
+}
+
+/* Repeat the HELMEN identity above the registered company details. */
+.footer-identity{display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-width:0}
+.footer-logo{display:inline-flex;align-items:center;gap:3px;color:var(--ink);font-size:1.25rem;font-weight:900;letter-spacing:.13em;line-height:1}
+.footer-logo-dot{display:inline-block;width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--yellow);transform:translateY(-2px)}
+.footer-company,.footer-service{font-size:.76rem;line-height:1.5;color:#617281}
+.footer-logo:focus-visible{outline:3px solid var(--yellow);outline-offset:6px}
+@media(max-width:620px){footer{flex-wrap:wrap;align-items:flex-start}.footer-identity{flex:1 1 220px}.footer-logo{font-size:1.1rem}.footer-company,.footer-service{font-size:.72rem}}
+
+/* Mobile: today's overview followed by two complete rows of three days. */
+@media(max-width:620px){
+ .forecast{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .forecast .day{min-width:0;padding:14px 9px;border-radius:15px}
+ .forecast .day-name{font-size:.69rem;line-height:1.5}
+ .forecast .temps{font-size:1.15rem}
+ .forecast .temps small{font-size:.75rem;margin-left:1px}
+ .forecast .snow{font-size:.72rem}
+ .forecast .snow strong{font-size:.9rem}
+ .forecast .day.today{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:12px 8px;min-height:0;padding:16px;margin-bottom:34px}
+ .forecast .today .day-name{grid-column:1/-1;font-size:.78rem}
+ .forecast .today .weather-icon{margin:0;font-size:1.7rem;text-align:center}
+ .forecast .today .snow{margin:0}
+}
+
+/* Small social links, separate from direct Messenger conversations. */
+.facebook-icon{display:block;flex-shrink:0}
+.facebook-profile{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin-top:12px;color:#b9cedb;font-size:.82rem;text-decoration:none}
+.facebook-profile .facebook-icon{color:#b9cedb}
+.facebook-profile>span:last-child{color:var(--yellow)}
+.footer-links{display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.footer-links>a{display:inline-flex;align-items:center;min-height:44px}
+.footer-facebook,.footer-instagram{justify-content:center;min-width:44px;color:#497891}
+.footer-facebook .facebook-icon{width:18px;height:18px}
+.facebook-profile:focus-visible,.footer-links>a:focus-visible{outline:3px solid var(--yellow);outline-offset:4px;border-radius:5px}
+@media(hover:hover) and (pointer:fine){.facebook-profile:hover{color:#fff}.footer-facebook:hover,.footer-instagram:hover{color:var(--blue)}}
+@media(max-width:620px){.footer-links{gap:18px}.facebook-profile{font-size:.78rem}}
+
+/* Facebook follows the same row layout as the other contact methods. */
+.direct-links .facebook-label{display:flex;align-items:center;gap:5px;flex-shrink:0;font-size:.68rem}
+
+.footer-instagram .instagram-icon{display:block;flex-shrink:0;width:18px;height:18px}
+
+/* Keep the footer identity left and social links right on small screens. */
+@media(max-width:620px){
+ footer{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:start}
+ .footer-identity{flex:none}
+ .footer-org{display:block;white-space:nowrap}
+ .footer-links{display:grid;grid-template-columns:repeat(2,44px);gap:0;justify-content:end}
+ .footer-links .footer-back-top{grid-column:1/-1;justify-self:end;white-space:nowrap;font-size:.72rem}
+}
+
+

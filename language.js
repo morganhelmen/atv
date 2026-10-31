@@ -1,5 +1,13 @@
 // Keep the original Norwegian text so switching language never changes markup or form data.
 const english = {
+  "Forespørsel om brøyting": "Snow clearing enquiry",
+  "Bilder til brøyteforespørsel": "Photos for snow clearing enquiry",
+  "Helmen, til toppen": "Helmen, back to top",
+  "Org.nr. 938 781 532": "Org. no. 938 781 532",
+  "❄️ Prognosen viser mulig snø på <strong>{days}</strong> av de neste 7 dagene, totalt rundt <strong>{snow} cm</strong>.": "❄️ Snow is possible on <strong>{days}</strong> of the next 7 days, totalling around <strong>{snow} cm</strong>.",
+  "Brøyting og snømåking i Hokksund | Helmen Drift": "Snow clearing in Hokksund | Helmen Drift",
+  "Brøyting med ATV av oppkjørsler, gårdsplasser og mindre veier i Hokksund, Vestfossen, Loesmoen og Steinberg. Fra 300 kr per gang. Be om et uforpliktende tilbud.": "ATV snow clearing for driveways, yards and small roads in Hokksund, Vestfossen, Loesmoen and Steinberg. From NOK 300 per visit. Get a no-obligation quote.",
+  "Helmen Drift på Facebook": "Helmen Drift on Facebook",
   "Vinterillustrasjon av min Kymco MXU 500 med Kimpex-brøyteskjær": "Winter illustration of my Kymco MXU 500 with a Kimpex snow plough",
   "· Vinterillustrasjon": "· Winter illustration",
   "Firehjulstrekk, kjetting og brøyteskjær for mindre områder.": "Four-wheel drive, snow chains and a plough for smaller areas.",
@@ -55,7 +63,7 @@ const english = {
   "OM MEG": "ABOUT ME",
   "Hei, jeg heter Morgan!": "Hi, I'm Morgan!",
   "Portrett av Morgan": "Portrait of Morgan",
-  "Jeg er 42 år, jobber innen IT og bor i Hokksund sammen med samboeren min og barna våre. På fritiden tilbyr jeg mindre brøyteoppdrag med ATV for folk i nærområdet.": "I'm 42, work in IT and live in Hokksund with my partner and our children. In my spare time, I offer smaller ATV snow clearing jobs for people in the local area.",
+  "Jeg er 42 år, jobber innen IT og bor i Hokksund sammen med forloveden min og barna våre. På fritiden tilbyr jeg mindre brøyteoppdrag med ATV for folk i nærområdet.": "I'm 42, work in IT and live in Hokksund with my fiancée and our children. In my spare time, I offer smaller ATV snow clearing jobs for people in the local area.",
   "Jeg er ganske ny med både ATV og brøyting, men har masse ståpåvilje og lyst til å lære. Jeg liker å ta i et tak og gjøre vinterhverdagen litt enklere for andre. Ta gjerne kontakt for et uforpliktende tilbud, så finner vi en løsning som passer!": "I'm fairly new to both ATVs and snow clearing, but I have plenty of determination and a desire to learn. I enjoy pitching in and making winter a little easier for others. Feel free to get in touch for a no-obligation quote, and we'll find a solution that works for you!",
   "Oppkjørsel": "Driveway",
   "Gårdsplass": "Yard",
@@ -80,6 +88,7 @@ const english = {
   "Vanlige og smalere innkjørsler ved bolig.": "Standard and narrow residential driveways.",
   "Gårdsplasser": "Yards",
   "Parkering, gårdsplass og mindre utearealer.": "Parking spaces, yards and smaller outdoor areas.",
+  "Mindre vei": "Small road",
   "Mindre veier": "Small roads",
   "Korte private veier og andre mindre brøyteoppdrag.": "Short private roads and other smaller snow clearing jobs.",
   "7-DAGERS VÆR · HOKKSUND": "7-DAY WEATHER · HOKKSUND",
@@ -131,27 +140,42 @@ const english = {
   "Værmeldingen kunne ikke lastes akkurat nå. Prøv igjen senere.": "The forecast could not be loaded right now. Please try again later.",
   "Værdata er midlertidig utilgjengelig.": "Weather data is temporarily unavailable."
 };
+const languageConfigs = {
+  no: {html: "nb", locale: "nb-NO", openGraph: "nb_NO"},
+  en: {html: "en", locale: "en-GB", openGraph: "en_GB"},
+  pl: {html: "pl", locale: "pl-PL", openGraph: "pl_PL"},
+  uk: {html: "uk", locale: "uk-UA", openGraph: "uk_UA"},
+  lt: {html: "lt", locale: "lt-LT", openGraph: "lt_LT"}
+};
+const dictionaries = {en: english};
+["pl", "uk", "lt"].forEach((code, column) => {
+  dictionaries[code] = Object.fromEntries(
+    Object.entries(additionalTranslations).map(([source, translations]) => [source, translations[column]])
+  );
+});
+const translationKeys = new Set([...Object.keys(english), ...Object.keys(additionalTranslations)]);
 let language = "no";
 try {
-  if (localStorage.getItem("language") === "en") language = "en";
+  const savedLanguage = localStorage.getItem("language");
+  if (Object.hasOwn(languageConfigs, savedLanguage)) language = savedLanguage;
 } catch { /* Language selection still works when storage is unavailable. */ }
 
-const translate = (text) => language === "en" ? (english[text] || text) : text;
+const translate = (text) => dictionaries[language]?.[text] || text;
 const translatedNodes = [];
 const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 while (walker.nextNode()) {
   const node = walker.currentNode;
   if (node.parentElement.closest("script, style, .language-switch")) continue;
   const text = node.textContent.trim();
-  if (Object.hasOwn(english, text)) {
+  if (translationKeys.has(text)) {
     translatedNodes.push({node, text, original: node.textContent});
   }
 }
 const translatedAttributes = [];
-document.querySelectorAll("[placeholder], [alt], meta[name='description'], meta[property='og:title'], meta[property='og:description']").forEach((element) => {
-  for (const attribute of ["placeholder", "alt", "content"]) {
+document.querySelectorAll("[placeholder], [alt], [aria-label], [title], meta[name='description'], meta[property='og:title'], meta[property='og:description'], meta[property='og:image:alt'], meta[name^='twitter:']").forEach((element) => {
+  for (const attribute of ["placeholder", "alt", "aria-label", "title", "content"]) {
     const text = element.getAttribute(attribute);
-    if (text && Object.hasOwn(english, text)) translatedAttributes.push({element, attribute, text});
+    if (text && translationKeys.has(text)) translatedAttributes.push({element, attribute, text});
   }
 });
 const norwegianTitle = document.title;
@@ -161,9 +185,10 @@ document.querySelectorAll("select[name='job'] option").forEach((option) => {
 });
 
 function setLanguage(nextLanguage) {
-  language = nextLanguage === "en" ? "en" : "no";
-  document.documentElement.lang = language === "en" ? "en" : "nb";
+  language = Object.hasOwn(languageConfigs, nextLanguage) ? nextLanguage : "no";
+  document.documentElement.lang = languageConfigs[language].html;
   document.title = translate(norwegianTitle);
+  document.querySelector('meta[property="og:locale"]')?.setAttribute("content", languageConfigs[language].openGraph);
   translatedNodes.forEach(({node, text, original}) => {
     node.textContent = original.replace(text, translate(text));
   });
@@ -172,7 +197,7 @@ function setLanguage(nextLanguage) {
   });
   document.querySelectorAll("a[data-subject-no][data-subject-en]").forEach((link) => {
     const recipient = link.getAttribute("href").split("?")[0];
-    const subject = language === "en" ? link.dataset.subjectEn : link.dataset.subjectNo;
+    const subject = translate(link.dataset.subjectNo);
     // Mail apps expect percent-encoded spaces, not form-style plus signs.
     link.setAttribute("href", recipient + "?subject=" + encodeURIComponent(subject));
   });
@@ -201,3 +226,6 @@ languagePicker.addEventListener("keydown", (event) => {
   }
 });
 setLanguage(language);
+
+
+

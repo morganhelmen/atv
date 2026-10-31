@@ -71,3 +71,32 @@ html{scroll-padding-top:110px}
  .service-shortcuts a{padding:20px}
  .service-aside{padding:24px}
 }
+
+/* The service overview follows production's colours, cards and spacing. */
+.hero-copy{min-width:0}
+.hero h1,.service-hero h1{overflow-wrap:anywhere;hyphens:auto}
+.hero-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hero-facts span{padding:15px 10px;border:1px solid #ffffff20;border-radius:16px;background:#ffffff06;text-align:center;line-height:1.5}
+.hero-facts span::before{display:block;margin:0 0 5px;font-weight:900}
+.service-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.service-card{border-radius:28px;padding:28px}
+.service-card h3{font-size:1.45rem;line-height:1.18}
+.service-card .icon{background:#0b1723;color:#fff;flex-shrink:0}
+.service-card.winter .icon{background:#ffffff12;color:#f6ba3d}
+.card-top{gap:12px;min-height:54px;margin-bottom:28px}
+.tag{text-align:right;font-size:.58rem;line-height:1.5}
+.service-card.winter .tag{color:#f6ba3d}
+.card-link{align-items:center}
+.card-link svg{flex-shrink:0}
+.about{background:#f4f7fa}
+.service-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}
+.service-shortcuts a{min-width:0;line-height:1.4}
+@media(max-width:1000px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){
+ .service-grid,.service-shortcuts{grid-template-columns:1fr}
+ .hero-facts{gap:8px;font-size:.68rem}
+ .hero-facts span{padding:13px 7px}
+ .actions{justify-content:center}
+ .service-card{padding:25px}
+}
+
