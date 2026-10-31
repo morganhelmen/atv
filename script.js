@@ -81,9 +81,10 @@ function renderWeather() {
     summary.textContent = translate("Henter værmelding…");
     return;
   }
-  const locale = language === "en" ? "en-GB" : "nb-NO";
+  const locale = languageConfigs[language].locale;
   const dayFmt = new Intl.DateTimeFormat(locale, {weekday:"short"});
   const fullFmt = new Intl.DateTimeFormat(locale, {day:"numeric", month:"short"});
+  const snowFmt = new Intl.NumberFormat(locale, {minimumFractionDigits:1, maximumFractionDigits:1});
   const d = weatherData;
   forecast.innerHTML = "";
   let snowDays = 0;
@@ -99,14 +100,14 @@ function renderWeather() {
       <div class="day-name">${i === 0 ? translate("I dag") : dayFmt.format(date)} · ${fullFmt.format(date)}</div>
       <div class="weather-icon">${weatherCodeIcon(d.weather_code[i])}</div>
       <div class="temps">${Math.round(d.temperature_2m_max[i])}° <small>${Math.round(d.temperature_2m_min[i])}°</small></div>
-      <div class="snow">${translate("Snø")}<strong>${snow.toFixed(1)} cm</strong></div>
+      <div class="snow">${translate("Snø")}<strong>${snowFmt.format(snow)} cm</strong></div>
       <div class="snow">${translate("Nedbør")}<strong>${Math.round(d.precipitation_probability_max[i] || 0)} %</strong></div>`;
     forecast.appendChild(el);
   });
   if (snowDays) {
-    summary.innerHTML = language === "en"
-      ? `❄️ Snow is possible on <strong>${snowDays}</strong> of the next 7 days, totalling around <strong>${snowTotal.toFixed(1)} cm</strong>.`
-      : `❄️ Prognosen viser mulig snø på <strong>${snowDays}</strong> av de neste 7 dagene, totalt rundt <strong>${snowTotal.toFixed(1)} cm</strong>.`;
+    summary.innerHTML = translate("❄️ Prognosen viser mulig snø på <strong>{days}</strong> av de neste 7 dagene, totalt rundt <strong>{snow} cm</strong>.")
+      .replace("{days}", String(snowDays))
+      .replace("{snow}", snowFmt.format(snowTotal));
   } else {
     summary.textContent = translate("Ingen nevneverdig snø er meldt de neste 7 dagene akkurat nå.");
   }
@@ -137,3 +138,4 @@ async function loadWeather() {
   renderWeather();
 }
 loadWeather();
+
