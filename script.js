@@ -2,6 +2,7 @@ const $ = (s) => document.querySelector(s);
 const form = $("#contactForm");
 const statusEl = $("#formStatus");
 const sendBtn = form.querySelector("button[type=submit]");
+const idleSendLabel = sendBtn.dataset.idleLabel || "Send forespørsel";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -48,7 +49,7 @@ form.addEventListener("submit", async (e) => {
     statusEl.textContent = translate(statusEl.dataset.message);
   } finally {
     sendBtn.disabled = false;
-    label.textContent = translate("Send forespørsel");
+    label.textContent = translate(idleSendLabel);
   }
 });
 
@@ -67,6 +68,7 @@ let weatherFailed = false;
 function renderWeather() {
   const forecast = $("#forecast");
   const summary = $("#weatherSummary");
+  if (!forecast || !summary) return;
   if (weatherFailed) {
     forecast.innerHTML = "";
     const error = document.createElement("div");
@@ -115,7 +117,7 @@ function renderWeather() {
 
 document.addEventListener("languagechange", () => {
   renderWeather();
-  $(".send-label").textContent = translate(sendBtn.disabled ? "Sender…" : "Send forespørsel");
+  $(".send-label").textContent = translate(sendBtn.disabled ? "Sender…" : idleSendLabel);
   if (statusEl.dataset.message) statusEl.textContent = translate(statusEl.dataset.message);
 });
 
@@ -137,6 +139,7 @@ async function loadWeather() {
   }
   renderWeather();
 }
-loadWeather();
+if ($("#forecast")) loadWeather();
+
 
 

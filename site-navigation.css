@@ -18,6 +18,7 @@ html{scroll-padding-top:calc(var(--site-header-height) + 20px)}
 .site-service-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;flex:1;margin:0}
 .site-service-links a{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;min-height:44px;padding:8px 9px;border:1px solid #ffffff22;border-radius:12px;color:#d0dfe8;background:#ffffff05;font-size:.75rem;font-weight:650;line-height:1.3;text-align:center;text-decoration:none}
 .site-service-links .season-link{border-color:#f6ba3d66;background:#f6ba3d14;color:#ffd16d}
+.site-service-links a>span{min-width:0;overflow-wrap:anywhere;hyphens:auto}
 .season-mini{padding:2px 5px;border-radius:4px;background:#f6ba3d;color:#0b1723;font-size:.52rem;font-weight:900;letter-spacing:.04em}
 .site-service-links a[aria-current="page"]{background:#fff;color:#0b1723;border-color:#fff}
 .site-service-links .season-link[aria-current="page"]{background:#f6ba3d;border-color:#f6ba3d}
@@ -29,6 +30,21 @@ html{scroll-padding-top:calc(var(--site-header-height) + 20px)}
 .site-menu nav .site-contact-link{background:#f6ba3d;color:#0b1723;font-weight:800}
 .site-menu[open]>summary{color:#f6ba3d;border-color:#f6ba3d}
 .site-header .language-switch{margin-left:0;flex-shrink:0}
+.site-header .language-switch{position:relative;width:170px;color:#003b71;font-size:.82rem}
+.site-header .language-switch summary{display:flex;align-items:center;gap:7px;min-height:40px;padding:6px 8px;border:1px solid #768292;border-radius:6px;background:#fff;cursor:pointer;list-style:none;white-space:nowrap}
+.site-header .language-switch summary::-webkit-details-marker{display:none}
+.site-header .language-globe{width:17px;height:17px;flex-shrink:0;color:#192b3d}
+.site-header .language-chevron{width:14px;height:14px;margin-left:auto;flex-shrink:0;color:#192b3d}
+.site-header .language-switch[open] .language-chevron{transform:rotate(180deg)}
+.site-header .language-options{position:absolute;top:calc(100% + 3px);left:0;right:0;max-height:min(320px,calc(100dvh - 100px));overflow-y:auto;background:#fff;border:1px solid #e7e9ed;border-radius:8px;box-shadow:0 8px 25px #0003;z-index:60}
+.site-header .language-options button{position:relative;display:block;width:100%;min-height:44px;border:0;background:#fff;color:#003b71;text-align:left;padding:11px 16px 11px 32px;font:inherit;cursor:pointer}
+.site-header .language-options button+button{border-top:1px solid #e7e9ed}
+.site-header .language-options button[aria-pressed="true"]::before{content:"";position:absolute;left:16px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:#003b71}
+.site-header .language-options button:hover{background:#f0f5fa}
+.site-header .language-options button:focus-visible{outline:3px solid #f6ba3d;outline-offset:-3px}
+.company-details{color:#497891;font-size:.8rem;line-height:1.6}
+.site-header-inner{gap:20px}
+.site-main-nav{gap:18px}
 .site-header a:focus-visible,.site-header summary:focus-visible,.site-footer a:focus-visible{outline:3px solid #f6ba3d;outline-offset:4px}
 .site-footer{width:min(1180px,calc(100% - 36px));margin-inline:auto;padding:36px 0 45px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;color:#617281;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:.82rem}
 .site-footer .footer-identity{display:grid;gap:10px;min-width:0}
@@ -57,6 +73,7 @@ html{scroll-padding-top:calc(var(--site-header-height) + 20px)}
  .site-services{padding:10px 0 12px}
  .site-service-links{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
  .site-service-links a{min-height:44px;padding:7px 5px;border-radius:10px;font-size:.7rem}
+ .site-service-links .season-link{flex-wrap:wrap;gap:4px}
  .site-header .language-switch{width:64px}
  .site-header .language-switch summary{justify-content:space-between;min-height:40px}
  .site-header .language-switch summary>span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
@@ -67,3 +84,4 @@ html{scroll-padding-top:calc(var(--site-header-height) + 20px)}
  .site-footer-links .footer-top{grid-column:1/-1;justify-self:end;margin:0;font-size:.72rem}
 }
 @media(max-width:380px){.site-header:has(.language-switch) .site-menu summary>span{display:none}}
+

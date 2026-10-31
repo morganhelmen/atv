@@ -89,6 +89,21 @@ html{scroll-padding-top:110px}
 .card-link{align-items:center}
 .card-link svg{flex-shrink:0}
 .about{background:#f4f7fa}
+.contact .contact-options{margin-top:24px;max-width:430px}
+.general-contact-form{min-width:0;padding:30px;border-radius:24px;background:#fff;color:var(--navy);box-shadow:0 20px 45px #0002}
+.general-contact-form label{display:block;margin:0 0 18px;font-size:.85rem;font-weight:650}
+.general-contact-form label>span{display:block;margin-bottom:7px}
+.general-contact-form input,.general-contact-form textarea{box-sizing:border-box;width:100%;min-width:0;border:1px solid #cfdae2;border-radius:11px;padding:12px 13px;background:#f7f9fb;color:var(--navy);font:inherit;font-size:.95rem;line-height:1.5}
+.general-contact-form textarea{resize:vertical;min-height:140px}
+.general-contact-form input:focus,.general-contact-form textarea:focus{outline:3px solid #f6ba3d66;border-color:#bc8a2a}
+.general-contact-form .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.general-contact-form .send-button{display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;min-height:50px;border:0;border-radius:12px;padding:14px 18px;background:var(--yellow);color:var(--navy);font:800 .95rem/1.5 Inter,ui-sans-serif,system-ui,sans-serif;cursor:pointer}
+.general-contact-form .send-button:focus-visible{outline:3px solid #497891;outline-offset:4px}
+.general-contact-form .send-button:disabled{opacity:.65;cursor:wait}
+.general-contact-form .form-status{margin-top:14px;font-size:.85rem;line-height:1.5}
+.general-contact-form .form-status:empty{margin:0}
+.general-contact-form .form-status.ok{color:#216446}
+.general-contact-form .form-status.err{color:#a12f2f}
 .service-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}
 .service-shortcuts a{min-width:0;line-height:1.4}
 @media(max-width:1000px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -98,5 +113,7 @@ html{scroll-padding-top:110px}
  .hero-facts span{padding:13px 7px}
  .actions{justify-content:center}
  .service-card{padding:25px}
+ .general-contact-form{padding:24px}
 }
+
 

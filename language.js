@@ -153,6 +153,12 @@ const dictionaries = {en: english};
     Object.entries(additionalTranslations).map(([source, translations]) => [source, translations[column]])
   );
 });
+// Nonproduction's service pages share the same language selection and engine.
+for (const [source, translations] of Object.entries(serviceTranslations)) {
+  ["en", "pl", "uk", "lt"].forEach((code, column) => {
+    dictionaries[code][source] = translations[column];
+  });
+}
 const translationKeys = new Set([...Object.keys(english), ...Object.keys(additionalTranslations)]);
 let language = "no";
 try {
@@ -195,7 +201,7 @@ function setLanguage(nextLanguage) {
   translatedAttributes.forEach(({element, attribute, text}) => {
     element.setAttribute(attribute, translate(text));
   });
-  document.querySelectorAll("a[data-subject-no][data-subject-en]").forEach((link) => {
+  document.querySelectorAll("a[data-subject-no]").forEach((link) => {
     const recipient = link.getAttribute("href").split("?")[0];
     const subject = translate(link.dataset.subjectNo);
     // Mail apps expect percent-encoded spaces, not form-style plus signs.
@@ -226,6 +232,7 @@ languagePicker.addEventListener("keydown", (event) => {
   }
 });
 setLanguage(language);
+
 
 
 
