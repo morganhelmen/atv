@@ -95,6 +95,17 @@ html{scroll-padding-top:110px}
 .service-facts>span::before{content:"✓";margin-right:7px;color:#f6ba3d}
 .button-outline{border:1px solid #ffffff35;background:#ffffff06;color:#fff}
 .button-outline:hover{background:#ffffff12}
+.button-call{padding:14px 18px;border:1px solid #20394a;background:#0b1723;color:#fff}
+.button-call:hover{background:#17374c}
+.intro .button-call{background:#ffffff06;border-color:#ffffff35;color:#fff}
+.intro .button-call:hover{background:#ffffff12}
+.other-jobs--form{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:45px;align-items:start;padding:30px;border:1px solid var(--line);background:#fff}
+.other-jobs--form .general-contact-form{padding:0;border-radius:0;box-shadow:none}
+.other-jobs-icon{display:grid;place-items:center;width:45px;height:45px;border-radius:14px;background:#edf3f7;color:#497891;font-size:1.6rem;margin-bottom:22px}
+.other-jobs-copy h3{font-size:1.6rem;line-height:1.2;max-width:340px;margin-bottom:18px}
+.other-jobs-copy p{max-width:370px;margin-bottom:16px}
+.other-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:760px){.other-jobs--form{grid-template-columns:1fr;gap:24px;padding:24px}.other-jobs-copy h3{max-width:none}.other-form-grid{grid-template-columns:1fr;gap:0}}
 .season-status{border-color:#f6ba3d55;color:#f6ba3d}
 @media(prefers-reduced-motion:reduce){.service-see-more svg{transition:none}.service-see-more:hover svg{transform:none}}
 
@@ -163,6 +174,7 @@ html{scroll-padding-top:110px}
  .service-card{padding:25px}
  .general-contact-form{padding:24px}
 }
+
 
 
 
