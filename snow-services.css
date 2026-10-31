@@ -5,13 +5,17 @@
 .overline{display:block;color:#497891;font-size:.7rem;font-weight:850;letter-spacing:.15em;margin-bottom:14px}
 .section-title h2 span{color:var(--yellow)}
 .snow-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.snow-type{position:relative;min-width:0;border:1px solid var(--line);border-radius:24px;padding:28px;background:#f4f7fa}
+.snow-type{position:relative;overflow:hidden;min-width:0;border:1px solid var(--line);border-radius:24px;padding:28px;background:#fff;box-shadow:0 8px 24px #0b172307}
+#tjenestedetaljer:has(.snow-types){background:var(--paper)}
+.snow-type .service-card-drawing{right:10px;top:28px;width:185px;height:195px}
+.snow-type .icon,.snow-type h3,.snow-type p{position:relative;z-index:1}
 .snow-type .card-num{position:absolute;right:22px;top:18px;color:#93a8b5;font-size:.72rem;font-weight:800}
 .snow-type .icon{width:48px;height:48px;border-radius:14px;background:#0b1723;color:#fff;margin-bottom:26px}
 .snow-type h3{font-size:1.35rem;margin-bottom:12px}
 .snow-type p{color:var(--muted);font-size:.95rem;margin-bottom:0}
 .snow-pricing{background:#e8eff4}
-.pricing-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px}
+.pricing-box{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px}
+.pricing-box>.button{justify-self:start}
 .pricing-box>div{min-width:0}
 .pricing-box h2{margin-bottom:18px}
 .pricing-box p{color:var(--muted);font-size:.95rem}
@@ -85,3 +89,4 @@
  .today .weather-icon{text-align:center}
  .general-contact-form .form-grid{grid-template-columns:1fr;gap:0}
 }
+
