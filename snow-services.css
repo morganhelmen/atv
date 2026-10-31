@@ -91,3 +91,15 @@
 }
 
 
+
+/* Match the front page's ATV photo width and natural image proportions. */
+.snow-hero .wrap{grid-template-columns:1.1fr 1fr;gap:65px}
+.snow-hero .service-visual{max-width:none;justify-self:stretch}
+.snow-hero .service-picture{aspect-ratio:auto;border-radius:30px;box-shadow:0 25px 65px #0004}
+.snow-hero .service-picture>img{height:auto}
+@media(max-width:1000px){.snow-hero .wrap{gap:35px}}
+@media(max-width:760px){
+ .snow-hero .wrap{grid-template-columns:1fr;gap:40px}
+ .snow-hero .service-visual{max-width:540px;justify-self:center}
+ .snow-hero .service-picture{border-radius:24px}
+}

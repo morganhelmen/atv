@@ -1,0 +1,18 @@
+/* Align the ATV photos without moving the shared service breadcrumbs. */
+.hero.atv-hero{align-items:start;padding-top:76px}
+.hero.atv-hero .hero-visual{margin-block-start:0}
+.snow-hero.atv-hero{padding-top:48px}
+.snow-hero.atv-hero>.wrap{align-items:start}
+.snow-hero.atv-hero .service-visual{margin-block-start:28px}
+@media(max-width:760px){
+ .atv-hero{--atv-copy-space:28rem;--atv-language-space:0rem}
+ html[lang="en"] .atv-hero,html[lang="pl"] .atv-hero,html[lang="lt"] .atv-hero{--atv-language-space:4rem}
+ html[lang="uk"] .atv-hero{--atv-language-space:8rem}
+ .hero.atv-hero{padding-top:40px;row-gap:40px}
+ .snow-hero.atv-hero{padding-top:28px}
+ .atv-hero .hero-copy,.atv-hero .service-hero-copy{min-block-size:calc(var(--atv-copy-space) + var(--atv-language-space))}
+ .snow-hero.atv-hero .service-hero-copy{min-block-size:calc(var(--atv-copy-space) + var(--atv-language-space) + 12px)}
+ .snow-hero.atv-hero .service-visual{margin-block-start:0}
+}
+@media(max-width:420px){.atv-hero{--atv-copy-space:30rem}}
+@media(max-width:359px){.atv-hero{--atv-copy-space:34rem}}
