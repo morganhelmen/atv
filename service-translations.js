@@ -198,11 +198,11 @@ const serviceTranslations = {
     "ЗАТЕЛЕФОНУЙТЕ HELMEN",
     "SKAMBINKITE HELMEN"
   ],
-  "Ring Helmen!": [
-    "Call Helmen!",
-    "Zadzwoń do Helmen!",
-    "Зателефонуйте Helmen!",
-    "Skambinkite Helmen!"
+  "Ring Helmen": [
+    "Call Helmen",
+    "Zadzwoń do Helmen",
+    "Зателефонуйте Helmen",
+    "Skambinkite Helmen"
   ],
   "Ring Helmen: 407 41 993": [
     "Call Helmen: 407 41 993",
