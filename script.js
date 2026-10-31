@@ -1,56 +1,52 @@
 const $ = (s) => document.querySelector(s);
-const form = $("#contactForm");
-const statusEl = $("#formStatus");
-const sendBtn = form.querySelector("button[type=submit]");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// Every form keeps its own pending state, values and feedback.
+const formBindings = [...document.querySelectorAll("form.contact-form")].map((form) => {
+  const statusEl = form.querySelector(".form-status");
+  const sendBtn = form.querySelector("button[type=submit]");
+  const label = sendBtn.querySelector(".send-label");
+  const idleSendLabel = sendBtn.dataset.idleLabel || "Send forespørsel";
 
-  statusEl.className = "form-status";
-  statusEl.textContent = "";
-  delete statusEl.dataset.message;
-  sendBtn.disabled = true;
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (sendBtn.disabled) return;
+    statusEl.className = "form-status";
+    statusEl.textContent = "";
+    delete statusEl.dataset.message;
+    sendBtn.disabled = true;
+    label.textContent = translate("Sender…");
 
-  const label = $(".send-label");
-  label.textContent = translate("Sender…");
-
-  try {
-    const formData = new FormData(form);
-
-    if (formData.get("botcheck")) {
-      throw new Error("Spam check failed");
+    try {
+      const formData = new FormData(form);
+      if (formData.get("botcheck")) throw new Error("Spam check failed");
+      const payload = Object.fromEntries(formData.entries());
+      if (!payload.email) delete payload.email;
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(20000)
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) throw new Error("Form submission failed");
+      statusEl.className = "form-status ok";
+      statusEl.dataset.message = "Takk! Meldingen er sendt ✓";
+      statusEl.textContent = translate(statusEl.dataset.message);
+      form.reset();
+    } catch (error) {
+      console.error(error);
+      statusEl.className = "form-status err";
+      statusEl.dataset.message = "Meldingen ble ikke sendt. Ring 407 41 993 eller prøv igjen.";
+      statusEl.textContent = translate(statusEl.dataset.message);
+    } finally {
+      sendBtn.disabled = false;
+      label.textContent = translate(idleSendLabel);
     }
-    const payload = Object.fromEntries(formData.entries());
-    // An empty optional email must not be sent as an invalid Reply-To.
-    if (!payload.email) delete payload.email;
-    const response = await fetch(form.action, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(20000)
-    });
-    const result = await response.json();
-    if (!response.ok || result.success !== true) {
-      throw new Error("Form submission failed");
-    }
+  });
 
-    statusEl.className = "form-status ok";
-    statusEl.dataset.message = "Takk! Meldingen er sendt ✓";
-    statusEl.textContent = translate(statusEl.dataset.message);
-    form.reset();
-  } catch (error) {
-    console.error(error);
-    statusEl.className = "form-status err";
-    statusEl.dataset.message = "Meldingen ble ikke sendt. Ring 407 41 993 eller prøv igjen.";
-    statusEl.textContent = translate(statusEl.dataset.message);
-  } finally {
-    sendBtn.disabled = false;
-    label.textContent = translate("Send forespørsel");
-  }
+  return {form, statusEl, sendBtn, label, idleSendLabel};
 });
+
 
 const weatherCodeIcon = (code) => {
   if ([71,73,75,77,85,86].includes(code)) return "❄️";
@@ -67,6 +63,7 @@ let weatherFailed = false;
 function renderWeather() {
   const forecast = $("#forecast");
   const summary = $("#weatherSummary");
+  if (!forecast || !summary) return;
   if (weatherFailed) {
     forecast.innerHTML = "";
     const error = document.createElement("div");
@@ -115,8 +112,10 @@ function renderWeather() {
 
 document.addEventListener("languagechange", () => {
   renderWeather();
-  $(".send-label").textContent = translate(sendBtn.disabled ? "Sender…" : "Send forespørsel");
-  if (statusEl.dataset.message) statusEl.textContent = translate(statusEl.dataset.message);
+  formBindings.forEach(({statusEl, sendBtn, label, idleSendLabel}) => {
+    label.textContent = translate(sendBtn.disabled ? "Sender…" : idleSendLabel);
+    if (statusEl.dataset.message) statusEl.textContent = translate(statusEl.dataset.message);
+  });
 });
 
 async function loadWeather() {
@@ -137,5 +136,9 @@ async function loadWeather() {
   }
   renderWeather();
 }
-loadWeather();
+if ($("#forecast")) loadWeather();
+
+
+
+
 

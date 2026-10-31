@@ -29,3 +29,4 @@ mobileLanguagePicker.addEventListener("toggle", () => {
 window.matchMedia("(max-width:900px)").addEventListener("change", event => {
   if (!event.matches) mobileMenu.open = false;
 });
+

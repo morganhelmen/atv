@@ -130,3 +130,5 @@ const additionalTranslations = {
   "Værmeldingen kunne ikke lastes akkurat nå. Prøv igjen senere.": ["Nie udało się wczytać prognozy. Spróbuj ponownie później.", "Не вдалося завантажити прогноз. Спробуйте пізніше.", "Šiuo metu nepavyko įkelti orų prognozės. Bandykite vėliau."],
   "Værdata er midlertidig utilgjengelig.": ["Dane pogodowe są chwilowo niedostępne.", "Дані про погоду тимчасово недоступні.", "Orų duomenys laikinai nepasiekiami."]
 };
+
+
